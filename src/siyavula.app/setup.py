@@ -15,7 +15,7 @@ setup(name='siyavula.app',
         "Programming Language :: Python",
         ],
       keywords='',
-      author='Juizi CC',
+      author='Johan Beyers',
       author_email='jbeyers@juizi.com',
       url='http://svn.plone.org/svn/collective/',
       license='GPL',
@@ -26,6 +26,8 @@ setup(name='siyavula.app',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'plone.app.dexterity',
+          'collective.xdv',
       ],
       entry_points="""
       # -*- Entry points: -*-
