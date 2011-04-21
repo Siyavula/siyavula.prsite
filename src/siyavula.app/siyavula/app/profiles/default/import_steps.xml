@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ <import-step 
+    id="siyavula-app-setupVarious" 
+    handler="siyavula.app.setuphandlers.setupVarious"
+    title="Set up various things for Siyavula"
+    version="2011-04-21">
+   <dependency step="siyavula.app-QI-dependencies"/>
+   Set up various things for siyavula.
+ </import-step>
+
+</import-steps>
+ 
