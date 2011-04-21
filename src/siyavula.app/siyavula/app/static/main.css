@@ -1,0 +1,102 @@
+/* Main wrapper */
+body {
+    background: url('bg.png');
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.wrapper {
+    width:1027px;
+    margin:60px auto 0 auto;
+}
+
+.header {
+    height:107px;
+    width:1027px;
+    background: url('header.png');
+}
+
+.logo {
+    float:left;
+    padding: 22px 0 0 46px;
+}
+
+.shuttleworth_logo {
+    float:right;
+    padding: 26px 51px 0 0;
+}
+
+img {
+    border-style: none;
+}
+
+.orange {
+    color:#f98e02;
+}
+
+.green {
+    color: #55b61a;
+}
+
+.menubar {
+    background: #3096d3;
+    text-align:right;
+    line-height: 25px;
+    color:white;
+    padding-right: 45px;
+}
+
+.menubar a {
+    color:white;
+}
+
+.banner {
+    height:100px;
+    width: 1000px;
+}
+
+.banner_text {
+    padding: 20px 0 0 700px;
+    color: #3096d3;
+}
+
+.section {
+    width: 1066px;
+    background: url('strip2.png') no-repeat;
+    height:105px;
+    margin-left: -24px;
+    padding: 0 45px 0 45px;
+}
+
+.content {
+    width: 1100px;
+    background: url('content_bg.png') repeat-y;
+    height: 500px;
+    margin-left:-6px;
+    padding: 45px;
+}
+
+.footer {
+    width: 1058px;
+    background: url('footer.png') no-repeat;
+    height: 239px;
+    margin-left:-6px;
+}
+
+.footer_wrapper {
+    height: 156px;
+}
+
+.footer_books {
+    float: left;
+    padding-left: 45px;
+}
+
+.footer_blurb {
+    float: right;
+    padding-right: 145px;
+}
+
+.colophon {
+    padding: 18px 0 0 40px;
+    vertical-align: middle;
+    color:white;
