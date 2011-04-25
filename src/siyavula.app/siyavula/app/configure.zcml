@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="siyavula.app">
 
@@ -20,4 +21,13 @@
       />
   <!-- -*- extra stuff goes here -*- -->
   
+  <!-- Register the Siyavula skin directory -->
+  <cmf:registerDirectory name="siyavula"/>
+
+  <!-- skinswitcher to plone admin skin, based on url. -->
+  <subscriber
+       for="Products.CMFPlone.interfaces.IPloneSiteRoot
+            zope.app.publication.interfaces.IBeforeTraverseEvent"
+       handler=".skinswitcher.setSkin" />
+
 </configure>

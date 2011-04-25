@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Siyavula</title>
+    
+</head>
+<body>
+    <tal:master metal:define-macro="master">
+    <tal:main metal:define-slot="main">
+    Main content
+    </tal:main>
+    After main content
+    </tal:master>
+</body>
+</html>
