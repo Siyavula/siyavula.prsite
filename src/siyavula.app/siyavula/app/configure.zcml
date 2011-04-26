@@ -20,7 +20,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
-  <include package=".browser" />
   
   <!-- Register the Siyavula skin directory -->
   <cmf:registerDirectory name="siyavula"/>
