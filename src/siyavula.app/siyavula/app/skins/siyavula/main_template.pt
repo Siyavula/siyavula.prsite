@@ -6,10 +6,6 @@
         <link rel="stylesheet" href="++resource++siyavula.app.static/main.css" type="text/css" media="screen, projection">
     </head>
     <body>
-    <tal:main metal:define-slot="main">
-    Main content
-    </tal:main>
-    After main content
         <div class="wrapper">
             <div class="container">
                 <div class="header">
@@ -35,7 +31,9 @@
                     Heading of sorts
                 </div>
                 <div class="content">
+                <tal:main metal:define-slot="siyavula_content">
                     Content Lorem ipsum
+                </tal:main>
                 </div>
                 <div class="footer">
                     <div class="footer_wrapper">

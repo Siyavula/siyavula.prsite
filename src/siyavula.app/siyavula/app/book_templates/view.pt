@@ -4,12 +4,10 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="example.conference">
+      i18n:domain="siyavula.app">
 <body>
-    <metal:main fill-slot="main">
-        <tal:main-macro metal:define-macro="main">
+    <metal:main fill-slot="siyavula_content">
         This is the individual book page.
-        </tal:main-macro>
     </metal:main>
 </body>
 
