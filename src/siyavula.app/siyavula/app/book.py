@@ -32,3 +32,7 @@ class IBook(form.Schema):
             required=False
         )
 
+class View(grok.View):
+    grok.context(IBook)
+    grok.require('zope2.View')
+
