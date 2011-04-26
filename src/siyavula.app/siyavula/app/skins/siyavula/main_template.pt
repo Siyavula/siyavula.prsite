@@ -1,5 +1,6 @@
 <tal:master metal:define-macro="master">
-<html lang="en" tal:define="navroot context/@@plone_portal_state/navigation_root_url">
+<html lang="en" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
+                            helpers nocall:context/@@main-template-helpers;">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>Siyavula</title>
@@ -19,7 +20,13 @@
                     </div>
                 </div>
                 <div class="menubar">
-                menu 1 | menu 2 | menu 3
+                <tal:sections tal:repeat="section helpers/sections">
+                <a tal:attributes="href section/absolute_url">
+                <span tal:replace="section/Title" />
+                </a>
+                <tal:dividers tal:condition="not:repeat/section/end"> |
+                </tal:dividers>
+                </tal:sections>
                 </div>
                 <!--
                 <div class="banner">
@@ -40,7 +47,10 @@
                 <div class="footer">
                     <div class="footer_wrapper">
                         <div class="footer_books">
+                            <div tal:repeat="book helpers/books">
+                            <h1 tal:content="book/Title" />
                             Books go here
+                            </div>
                         </div>
                         <div class="footer_blurb">
                             Blurb goes here
