@@ -1,19 +1,21 @@
 <tal:master metal:define-macro="master">
-<html lang="en">
+<html lang="en" tal:define="navroot context/@@plone_portal_state/navigation_root_url">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>Siyavula</title>
-        <link rel="stylesheet" href="++resource++siyavula.app/main.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" type="text/css" media="screen, projection"
+              href="#"
+              tal:attributes="href string:${navroot}/++resource++siyavula.app/main.css">
     </head>
     <body>
         <div class="wrapper">
             <div class="container">
                 <div class="header">
                     <div class="logo">
-                        <a href="#"><img src="++resource++siyavula.app/siyavula_logo.png" /></a>
+                        <a href="#"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/siyavula_logo.png" /></a>
                     </div>
                     <div class="shuttleworth_logo">
-                        <a href="#"><img src="++resource++siyavula.app/shuttleworth_foundation_logo.png" /></a>
+                        <a href="#"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/shuttleworth_foundation_logo.png" /></a>
                     </div>
                 </div>
                 <div class="menubar">
@@ -45,7 +47,7 @@
                         </div>
                     </div>
                     <div class="colophon">
-                        <a href="http://creativecommons.org/licenses/by/3.0/"><img src="++resource++siyavula.app/cc_88x31.png"></a> This site and its content is licensed under the cc-BY creative commons license.
+                        <a href="http://creativecommons.org/licenses/by/3.0/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/cc_88x31.png"></a> This site and its content is licensed under the cc-BY creative commons license.
                     </div>
                 </div>
             </div>
