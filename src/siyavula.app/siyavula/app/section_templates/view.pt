@@ -7,13 +7,16 @@
       i18n:domain="siyavula.app">
 <body>
     <metal:siyavula_banner fill-slot="siyavula_banner">
-        <div class="banner" tal:condition="context/header|nothing">
+        <metal:siyavula_banner_macro define-macro="siyavula_banner">
+        <div class="banner" tal:condition="context/header">
             <div class="banner_text" tal:content="structure context/headerblurb/output">
             </div>
             <img tal:condition="context/header" tal:define="scale context/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
         </div>
+        </metal:siyavula_banner_macro>
     </metal:siyavula_banner>
     <metal:siyavula_heading fill-slot="siyavula_heading">
+        <metal:siyavula_heading_macro define-macro="siyavula_heading">
         <tal:button tal:condition="context/button">
         <div class="heading_button">
         <img tal:define="scale context/@@images" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
@@ -22,8 +25,10 @@
         <div class="tagline" tal:attributes="style view/tagline_style">
             <span tal:condition="context/tagline" tal:content="context/tagline" /><span tal:condition="not:context/tagline">Siyavula, Incredible Educational Resources.</span>
         </div>
+        </metal:siyavula_heading_macro>
     </metal:siyavula_heading>
     <metal:siyavula_content fill-slot="siyavula_content">
+        <metal:siyavula_content_macro define-macro="siyavula_content">
         <div class="contentbox" tal:repeat="post view/posts">
             <div class="contentimage" tal:condition="post/image">
                 <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=292, height=174, direction='up').tag()" />
@@ -32,6 +37,7 @@
             <tal:content tal:replace="structure post/content/output" />
             <div class="clear">&nbsp</div>
         </div>
+        </metal:siyavula_content_macro>
     </metal:siyavula_content>
 </body>
 
