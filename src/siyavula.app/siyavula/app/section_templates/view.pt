@@ -6,11 +6,15 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
 <body>
-    <metal:main fill-slot="main">
-        This is the individual section page, admin skin
-    </metal:main>
     <metal:siyavula_content fill-slot="siyavula_content">
-        This is the individual section page.
+        <div class="contentbox" tal:repeat="post view/posts">
+            <div class="contentimage" tal:condition="post/image">
+                <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=180, height=180, direction='up').tag()" />
+            </div>
+            <h1 tal:content="post/title" />
+            <tal:content tal:replace="structure post/content/output" />
+            <div class="clear">&nbsp</div>
+        </div>
     </metal:siyavula_content>
 </body>
 

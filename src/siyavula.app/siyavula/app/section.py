@@ -53,6 +53,11 @@ class View(grok.View):
     grok.context(ISection)
     grok.require('zope2.View')
 
+    def posts(self):
+        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post'})
+        return [brain.getObject() for brain in brains]
+
+
 class BooksView(grok.View):
     grok.context(ISection)
     grok.require('zope2.View')

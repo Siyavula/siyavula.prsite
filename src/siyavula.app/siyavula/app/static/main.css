@@ -68,9 +68,8 @@ img {
 }
 
 .content {
-    width: 1100px;
+    width: 946px;
     background: url('content_bg.png') repeat-y;
-    height: 500px;
     margin-left:-6px;
     padding: 45px;
 }
@@ -100,3 +99,19 @@ img {
     padding: 18px 0 0 40px;
     vertical-align: middle;
     color:white;
+}
+
+/* Post and book content styling */
+.contentbox {
+    border: 1px solid black;
+    background: white;
+}
+
+.contentimage {
+    float: left;
+    margin:15px;
+}
+
+.clear {
+    clear:both;
+}
