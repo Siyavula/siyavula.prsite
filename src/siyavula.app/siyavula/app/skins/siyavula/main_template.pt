@@ -21,11 +21,11 @@
                 </div>
                 <div class="menubar">
                 <tal:sections tal:repeat="section helpers/sections">
-                <a tal:attributes="href section/absolute_url">
-                <span tal:replace="section/Title" />
-                </a>
-                <tal:dividers tal:condition="not:repeat/section/end"> |
-                </tal:dividers>
+                    <a tal:attributes="href section/absolute_url">
+                        <span tal:replace="section/Title" />
+                    </a>
+                    <tal:dividers tal:condition="not:repeat/section/end"> |
+                    </tal:dividers>
                 </tal:sections>
                 </div>
                 <!--
@@ -48,8 +48,9 @@
                     <div class="footer_wrapper">
                         <div class="footer_books">
                             <div tal:repeat="book helpers/books">
-                            <h1 tal:content="book/Title" />
-                            Books go here
+                                <a href="#" tal:attributes="href book/absolute_url">
+                                    <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=90, height=90, direction='up').tag()" />
+                                </a>
                             </div>
                         </div>
                         <div class="footer_blurb">
