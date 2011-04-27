@@ -30,16 +30,18 @@
                     </a>
                 </tal:sections>
                 </div>
-                <!--
+                <metal:siyavula_banner define-slot="siyavula_banner">
                 <div class="banner">
                     <div class="banner_text">
                         <h3>Banner header goes here.</h3>
                         <p>Banner text Lorem Ipsum</p>
                     </div>
                 </div>
-                -->
+                </metal:siyavula_banner>
                 <div class="section">
+                <metal:siyavula_heading define-slot="siyavula_heading">
                     Heading of sorts
+                </metal:siyavula_heading>
                 </div>
                 <div class="content">
                 <tal:main metal:define-slot="siyavula_content">
