@@ -22,28 +22,40 @@ class ISection(form.Schema):
     
     button = NamedImage(
             title=_(u"Button Image"),
-            description=_(u"Image for the wide button."),
+            description=_(u"Image for the wide button with the section name."),
+            required=False,
         )
 
-    colour = schema.TextLine(
-            title=_(u"Section colour in hex format, eg 23fe45"),
-        )
-    
-    tagline = RichText(
+    tagline = schema.TextLine(
             title=_(u"Tagline"),
-            description=_(u"A small tagline, used next to the image at the top."),
+            description=_(u"A small tagline, used next to the button image at the top."),
+            required=False,
         )
     
-    content = RichText(
-            title=_(u"Content"),
-            description=_(u"A longer description. Used in the section page, if any. Also used if the section is one of the 3 displayed on the front page."),
+    colour = schema.TextLine(
+            title=_(u"Tagline colour"),
+            description=_(u"The tagline colour, in Hex. eg: 34FE56"),
+            required=False,
         )
     
     header = NamedImage(
             title=_(u"Header Image"),
             description=_(u"An image displayed as a banner at the top of the section."),
+            required=False,
         )
 
+    headerblurb = RichText(
+            title=_(u"Header Blurb"),
+            description=_(u"The blurb (Text) displayed on top of the header image, if any. Recommended styles: H2 and normal text."),
+            required=False,
+        )
+
+    content = RichText(
+            title=_(u"Content"),
+            description=_(u"A longer description. Used in the section page, if any. Also used if the section is one of the 3 displayed on the front page."),
+            required=False,
+        )
+    
     display_on_frontpage = schema.Bool(
             title=_(u"Display On Frontpage"),
             description=_(u"Show the section as one of the 3 sections on the front page?"),
@@ -52,6 +64,13 @@ class ISection(form.Schema):
 class View(grok.View):
     grok.context(ISection)
     grok.require('zope2.View')
+
+    def tagline_style(self):
+        colour = self.context.colour
+        if colour:
+            return 'color:#%s;' % colour
+        else:
+            return 'color:#3096d3;'
 
     def posts(self):
         brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post'})
