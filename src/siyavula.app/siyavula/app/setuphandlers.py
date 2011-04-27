@@ -12,15 +12,17 @@ def setupVarious(context):
     # Create a few top-level folders for the content.
     portal = context.getSite()
     if not portal.hasObject('books'):
-        portal.invokeFactory(type_name='Folder', id='books',
-            title='Books') 
-        books = portal._getOb('books')
-        books.setConstrainTypesMode(ENABLED)
-        books.setLocallyAllowedTypes(['siyavula.app.book'])
-        books.setImmediatelyAddableTypes(['siyavula.app.book'])
+        portal.invokeFactory(type_name='siyavula.app.section', id='books',
+            title='WebBooks') 
+        section = portal._getOb('books')
+
+        wf = getToolByName(portal, 'portal_workflow')
+        wf.doActionFor(section,'publish')
+        section.reindexObject()
+
         # The next line enables a different view.
-        # books.setLayout('statusandnews_listing')
+        section.setLayout('booksview')
         # stop anyone from changing the display of this folder
-        books.manage_permission(ModifyViewTemplate, roles=[])
+        section.manage_permission(ModifyViewTemplate, roles=[])
         # stop people from change the allowed types
-        books.manage_permission(ModifyConstrainTypes, roles=[])
+        section.manage_permission(ModifyConstrainTypes, roles=[])
