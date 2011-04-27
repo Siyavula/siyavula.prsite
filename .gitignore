@@ -5,9 +5,13 @@
 adminPassword.txt
 PloneController.app
 bin/
+develop-eggs/
+include/
+lib/
 parts/
 products/
 var/
+distribute-0.6.10.tar.gz
 src/siyavula.app/Paste-1.7.5.1-py2.6.egg/
 src/siyavula.app/PasteDeploy-1.3.4-py2.6.egg/
 src/siyavula.app/PasteScript-1.7.3-py2.6.egg/
