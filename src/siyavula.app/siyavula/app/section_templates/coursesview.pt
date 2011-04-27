@@ -13,11 +13,17 @@
             <metal:siyavula_heading_macro use-macro="normal_view/macros/siyavula_heading" />
         </metal:siyavula_heading>
         <metal:siyavula_content fill-slot="siyavula_content" tal:define="normal_view nocall:context/@@view">
+        <div class="content-left">
+            <span tal:condition=" context/content" tal:replace="structure context/content/output" />
+        </div>
+        <div class="content-right">
             <metal:siyavula_content_macro use-macro="normal_view/macros/siyavula_content">
             <metal:imagetag fill-slot="imagetag">
                 <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=174, height=174, direction='down').tag()" />
             </metal:imagetag>
             </metal:siyavula_content_macro>
+        </div>
+        <div class="clear">&nbsp;</div>
         </metal:siyavula_content>
     </body>
 </html>
