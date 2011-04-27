@@ -57,3 +57,18 @@ class BooksView(grok.View):
     grok.context(ISection)
     grok.require('zope2.View')
     grok.name('booksview')
+
+class CoursesView(grok.View):
+    grok.context(ISection)
+    grok.require('zope2.View')
+    grok.name('coursesview')
+
+class VolunteersView(grok.View):
+    grok.context(ISection)
+    grok.require('zope2.View')
+    grok.name('volunteersview')
+
+class BlogView(grok.View):
+    grok.context(ISection)
+    grok.require('zope2.View')
+    grok.name('blogview')
