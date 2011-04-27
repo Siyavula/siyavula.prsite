@@ -32,6 +32,42 @@ class IBook(form.Schema):
             required=False
         )
 
+    price = schema.TextLine(
+            title=_(u"Price"),
+            description=_(u"Price of the book, including the Rand sign"),
+            required=False
+        )
+    
+    availability = schema.TextLine(
+            title=_(u"Availability"),
+            description=_(u"Availability, eg 'Out of Stock', 'In stock'"),
+            required=False
+        )
+    
+    shipping = schema.TextLine(
+            title=_(u"Shipping details"),
+            description=_(u"When it will ship, eg 'Ships in 3 days'"),
+            required=False
+        )
+    
+    download_link = schema.TextLine(
+            title=_(u"Download Link"),
+            description=_(u"Link for a direct download."),
+            required=False
+        )
+    
+    online_link = schema.TextLine(
+            title=_(u"Online reading link"),
+            description=_(u"Link for reading the book online"),
+            required=False
+        )
+    
+    buy_link = schema.TextLine(
+            title=_(u"Buy link"),
+            description=_(u"Link to buy the book."),
+            required=False
+        )
+    
 class View(grok.View):
     grok.context(IBook)
     grok.require('zope2.View')
