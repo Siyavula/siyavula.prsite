@@ -7,7 +7,7 @@
       i18n:domain="siyavula.app">
 <body>
     <metal:siyavula_banner fill-slot="siyavula_banner">
-        <div class="banner">
+        <div class="banner" tal:condition="context/header|nothing">
             <div class="banner_text" tal:content="structure context/headerblurb/output">
             </div>
             <img tal:condition="context/header" tal:define="scale context/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
