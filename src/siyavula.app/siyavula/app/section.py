@@ -77,22 +77,19 @@ class View(grok.View):
         return [brain.getObject() for brain in brains]
 
 
-class BooksView(grok.View):
-    grok.context(ISection)
-    grok.require('zope2.View')
+class BooksView(View):
     grok.name('booksview')
 
-class CoursesView(grok.View):
-    grok.context(ISection)
-    grok.require('zope2.View')
+class CoursesView(View):
     grok.name('coursesview')
 
-class VolunteersView(grok.View):
-    grok.context(ISection)
-    grok.require('zope2.View')
+class VolunteersView(View):
     grok.name('volunteersview')
 
-class BlogView(grok.View):
-    grok.context(ISection)
-    grok.require('zope2.View')
+class BlogView(View):
     grok.name('blogview')
+
+    def posts(self):
+        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post', 'sort_on': 'created', 'sort_order': 'reverse'})
+        return [brain.getObject() for brain in brains]
+
