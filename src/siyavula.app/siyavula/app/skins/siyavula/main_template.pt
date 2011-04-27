@@ -20,12 +20,14 @@
                     </div>
                 </div>
                 <div class="menubar">
+                    <a tal:attributes="href string:${navroot}">
+                        Home
+                    </a>
                 <tal:sections tal:repeat="section helpers/sections">
+                    |
                     <a tal:attributes="href section/absolute_url">
                         <span tal:replace="section/Title" />
                     </a>
-                    <tal:dividers tal:condition="not:repeat/section/end"> |
-                    </tal:dividers>
                 </tal:sections>
                 </div>
                 <!--

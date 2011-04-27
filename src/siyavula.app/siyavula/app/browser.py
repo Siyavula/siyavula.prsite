@@ -22,7 +22,7 @@ class MainTemplateHelpers(grok.View):
     def sections(self):
         context = aq_inner(self.context)
         portal = context.portal_url.getPortalObject()
-        sections = portal.getFolderContents()
+        sections = portal.getFolderContents({'portal_type':'siyavula.app.section'})
         return [i.getObject() for i in sections]
         
     @view.memoize
