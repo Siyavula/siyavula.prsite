@@ -26,7 +26,7 @@
     <metal:siyavula_content fill-slot="siyavula_content">
         <div class="contentbox" tal:repeat="post view/posts">
             <div class="contentimage" tal:condition="post/image">
-                <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=180, height=180, direction='up').tag()" />
+                <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=292, height=174, direction='up').tag()" />
             </div>
             <h1 tal:content="post/title" />
             <tal:content tal:replace="structure post/content/output" />

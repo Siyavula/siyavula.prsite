@@ -84,10 +84,10 @@ a {
 }
 
 .content {
-    width: 946px;
+    width: 966px;
     background: url('content_bg.png') repeat-y;
     margin-left:-6px;
-    padding: 45px;
+    padding: 35px;
 }
 
 .footer {
@@ -140,9 +140,17 @@ a {
     border-radius: 8px;
 }
 
+.contentbox h1 {
+    font-weight:normal;
+    font-size: 1.5em;
+    color: #3096d3;
+    padding-top: 0.5em;
+}
+
 .contentimage {
     float: left;
-    margin:15px;
+    margin: 2em 2em 1em 2em;
+    border: 1px solid black;
 }
 
 .clear {
