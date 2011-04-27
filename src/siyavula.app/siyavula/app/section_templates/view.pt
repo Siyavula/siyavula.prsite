@@ -31,7 +31,9 @@
         <metal:siyavula_content_macro define-macro="siyavula_content">
         <div class="contentbox" tal:repeat="post view/posts">
             <div class="contentimage" tal:condition="post/image">
+                <metal:imagetag metal:define-slot="imagetag">
                 <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=292, height=174, direction='up').tag()" />
+                </metal:imagetag>
             </div>
             <h1 tal:content="post/title" />
             <tal:content tal:replace="structure post/content/output" />
