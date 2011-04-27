@@ -5,14 +5,20 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
-<body>
-    <metal:main fill-slot="main">
-        This is the individual section page, admin skin, courses view
-    </metal:main>
-    <metal:siyavula_content fill-slot="siyavula_content">
-        This is the individual section page, courses view.
-    </metal:siyavula_content>
-</body>
-
+    <body>
+        <metal:siyavula_banner fill-slot="siyavula_banner" tal:define="normal_view nocall:context/@@view">
+            <metal:siyavula_banner_macro use-macro="normal_view/macros/siyavula_banner" />
+        </metal:siyavula_banner>
+        <metal:siyavula_heading fill-slot="siyavula_heading" tal:define="normal_view nocall:context/@@view">
+            <metal:siyavula_heading_macro use-macro="normal_view/macros/siyavula_heading" />
+        </metal:siyavula_heading>
+        <metal:siyavula_content fill-slot="siyavula_content" tal:define="normal_view nocall:context/@@view">
+            <metal:siyavula_content_macro use-macro="normal_view/macros/siyavula_content">
+            <metal:imagetag fill-slot="imagetag">
+                <img tal:define="scale post/@@images" tal:replace="structure python: scale.scale('image', width=174, height=174, direction='down').tag()" />
+            </metal:imagetag>
+            </metal:siyavula_content_macro>
+        </metal:siyavula_content>
+    </body>
 </html>
 
