@@ -119,15 +119,16 @@ a {
 
 .heading_button {
     float:left;
-    padding: 18px 0 0 45px;
+    padding: 18px 0 0 70px;
 }
 
 .tagline {
     float:left;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: bold;
+    font-style: italic;
     font-family: Georgia, Serif;
-    padding: 36px 0 0 60px;
+    padding: 36px 0 0 38px;
 }
 
 /* Post and book content styling */
