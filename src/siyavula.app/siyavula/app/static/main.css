@@ -1,7 +1,14 @@
 /* Main wrapper */
+
+html {
+    font-size:100.01%;
+}
+
 body {
     background: url('bg.png');
+    font-size: 75%;
     font-family: Verdana, Arial, sans-serif;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
@@ -38,11 +45,16 @@ img {
 }
 
 .menubar {
+    font-size: 1.2em;
     background: #3096d3;
     text-align:right;
     line-height: 25px;
     color:white;
     padding-right: 45px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .menubar a {
@@ -69,7 +81,6 @@ img {
     background: url('strip2.png') no-repeat;
     height:105px;
     margin-left: -24px;
-    padding: 18px 45px 0 45px;
 }
 
 .content {
@@ -104,6 +115,19 @@ img {
     padding: 18px 0 0 40px;
     vertical-align: middle;
     color:white;
+}
+
+.heading_button {
+    float:left;
+    padding: 18px 0 0 45px;
+}
+
+.tagline {
+    float:left;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: Georgia, Serif;
+    padding: 36px 0 0 60px;
 }
 
 /* Post and book content styling */
