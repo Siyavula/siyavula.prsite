@@ -37,4 +37,4 @@ class MainTemplateHelpers(grok.View):
                  'sort_on' : 'getObjPositionInParent',
                 }
         brains = pc(query)
-        return [brain.getObject() for brain in brains]
+        return [brain.getObject() for brain in brains][:5]
