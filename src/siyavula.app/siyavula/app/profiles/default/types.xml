@@ -2,4 +2,5 @@
  <object name="siyavula.app.book" meta_type="Dexterity FTI" />
  <object name="siyavula.app.post" meta_type="Dexterity FTI" />
  <object name="siyavula.app.section" meta_type="Dexterity FTI" />
+ <object name="siyavula.app.settings" meta_type="Dexterity FTI" />
 </object>

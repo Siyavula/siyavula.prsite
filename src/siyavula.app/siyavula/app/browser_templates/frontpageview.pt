@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="siyavula.app">
+<body>
+    <metal:siyavula_banner fill-slot="siyavula_banner">
+        <div class="banner" tal:condition="view/banners">
+        </div>
+    </metal:siyavula_banner>
+    <metal:siyavula_heading fill-slot="siyavula_heading">
+        <div class="heading_button" tal:repeat="feature view/features">
+        <img tal:define="scale feature/@@images" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
+        </div>
+    </metal:siyavula_heading>
+    <metal:siyavula_content fill-slot="siyavula_content">
+        <div class="content-left" tal:repeat="feature view/features">
+        </div>
+    </metal:siyavula_content>
+    <metal:main fill-slot="main">
+        This is the admin interface for the siyavula website. Click on the top links to get to where you need to be.
+    </metal:main>
+</body>
+
+</html>

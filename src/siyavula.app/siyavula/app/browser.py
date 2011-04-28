@@ -3,13 +3,13 @@ from Acquisition import aq_inner
 
 from plone.memoize import view
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.interfaces import IContentish
+from Products.CMFCore.interfaces import IContentish, ISiteRoot
 
 class MainTemplateHelpers(grok.View):
     """Get some dynamic things we need in the main template.
     """
     
-    grok.context(IContentish)
+    grok.context(ISiteRoot)
     grok.require('zope2.View')
     grok.name('main-template-helpers')
     
@@ -38,3 +38,19 @@ class MainTemplateHelpers(grok.View):
                 }
         brains = pc(query)
         return [brain.getObject() for brain in brains][:5]
+
+class FrontPageView(grok.View):
+    """Get some dynamic things we need in the main template.
+    """
+    
+    grok.context(ISiteRoot)
+    grok.require('zope2.View')
+    grok.name('frontpageview')
+
+    def banners(self):
+        """ Return banners for rotating """
+        return []
+
+    def features(self):
+        """ Return featured sections"""
+        return []

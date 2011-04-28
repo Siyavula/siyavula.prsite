@@ -1,6 +1,7 @@
 <tal:master metal:define-macro="master">
 <html lang="en" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
-                            helpers nocall:context/@@main-template-helpers;">
+                            portal context/@@plone_portal_state/portal;
+                            helpers nocall:portal/@@main-template-helpers;">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>Siyavula</title>

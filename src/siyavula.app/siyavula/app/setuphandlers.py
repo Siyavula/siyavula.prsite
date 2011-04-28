@@ -12,6 +12,27 @@ def setupVarious(context):
     # Create a few top-level folders for the content.
     portal = context.getSite()
 
+    if not portal.hasObject('settings'):
+        portal.invokeFactory(type_name='siyavula.app.settings', id='settings',
+            title='Settings') 
+        settings = portal._getOb('settings')
+
+        wf = getToolByName(portal, 'portal_workflow')
+        wf.doActionFor(settings,'publish')
+        settings.reindexObject()
+        #portal.default_page = 'settings'
+        portal.default_page = 'do-not-use'
+        portal.setLayout('frontpageview')
+        #if portal.hasObject('front-page'):
+        #    portal.manage_delObjects(['front-page'])
+    else:
+        settings = portal._getOb('settings')
+
+    # Stop anyone from changing the display of this folder
+    settings.manage_permission(ModifyViewTemplate, roles=[])
+    # Stop people from changing the allowed types
+    settings.manage_permission(ModifyConstrainTypes, roles=[])
+
     sections = [
         {'id': 'books',
         'title': 'WebBooks',
