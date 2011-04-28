@@ -56,9 +56,8 @@ class ISection(form.Schema):
             required=False,
         )
     
-    display_on_frontpage = schema.Bool(
-            title=_(u"Display On Frontpage"),
-            description=_(u"Show the section as one of the 3 sections on the front page?"),
+    embed_code = schema.Text(
+            title=_(u"Youtube embed code for a video for this section."),
         )
 
 class View(grok.View):

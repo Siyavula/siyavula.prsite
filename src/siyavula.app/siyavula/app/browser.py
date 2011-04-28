@@ -39,6 +39,12 @@ class MainTemplateHelpers(grok.View):
         brains = pc(query)
         return [brain.getObject() for brain in brains][:5]
 
+    def books_blurb(self):
+        context = aq_inner(self.context)
+        portal = context.portal_url.getPortalObject()
+        settings = portal.settings
+        return settings.books_blurb.output
+
 class FrontPageView(grok.View):
     """Get some dynamic things we need in the main template.
     """
@@ -47,10 +53,16 @@ class FrontPageView(grok.View):
     grok.require('zope2.View')
     grok.name('frontpageview')
 
+    def get_settings(self):
+        return self.context.settings
+
     def banners(self):
         """ Return banners for rotating """
         return []
 
     def features(self):
         """ Return featured sections"""
-        return []
+        settings = self.get_settings()
+        return [settings.left_section.to_object,
+                settings.center_section.to_object,
+                settings.right_section.to_object]

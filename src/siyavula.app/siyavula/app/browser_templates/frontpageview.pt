@@ -12,12 +12,15 @@
     </metal:siyavula_banner>
     <metal:siyavula_heading fill-slot="siyavula_heading">
         <div class="heading_button" tal:repeat="feature view/features">
-        <img tal:define="scale feature/@@images" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
+        <img tal:define="scale feature/@@images" tal:condition="feature/button" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
         </div>
     </metal:siyavula_heading>
     <metal:siyavula_content fill-slot="siyavula_content">
         <div class="content-left" tal:repeat="feature view/features">
+        <tal:content condition="feature/content" replace="structure feature/content/output" />
+        <tal:embed condition="feature/embed_code" replace="structure feature/embed_code" />
         </div>
+        <div class="clear">&nbsp;</div>
     </metal:siyavula_content>
     <metal:main fill-slot="main">
         This is the admin interface for the siyavula website. Click on the top links to get to where you need to be.

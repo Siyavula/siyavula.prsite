@@ -1,23 +1,21 @@
 <?xml version="1.0"?>
-<object name="siyavula.app.settings" meta_type="Dexterity FTI"
+<object name="siyavula.app.header" meta_type="Dexterity FTI"
    i18n:domain="siyavula.app" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Settings</property>
- <property name="description" i18n:translate="">Settings for the site</property>
- <property name="content_icon">folder.gif</property>
- <property name="allow_discussion">False</property>
- <property name="global_allow">True</property>
+ <property name="title" i18n:translate="">Header</property>
+ <property name="description" i18n:translate="">A Header image</property>
+ <property name="content_icon">page.gif</property>
+ <property name="allow_discussion">True</property>
+ <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-     <element value="siyavula.app.header" />
- </property>
+ <property name="allowed_content_types" />
  
  <!-- schema interface -->
- <property name="schema">siyavula.app.settings.ISettings</property> 
+ <property name="schema">siyavula.app.header.IHeader</property> 
  
  <!-- class used for content items -->
- <property name="klass">plone.dexterity.content.Container</property>
+ <property name="klass">plone.dexterity.content.Item</property>
  
  <!-- add permission -->
  <property name="add_permission">cmf.AddPortalContent</property>

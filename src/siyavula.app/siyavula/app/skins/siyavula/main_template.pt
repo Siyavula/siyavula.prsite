@@ -46,7 +46,7 @@
                         <div class="footer_book" tal:repeat="book helpers/books">
                                 <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=100, height=100, direction='up').tag()" />
                         </div>
-                        <div class="footer_blurb">
+                        <div class="footer_blurb" tal:condition="helpers/books_blurb" tal:content="structure helpers/books_blurb">
                         </div>
                     </div>
                     <div class="colophon">
