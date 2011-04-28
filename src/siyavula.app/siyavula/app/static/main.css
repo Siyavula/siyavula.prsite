@@ -156,7 +156,7 @@ a {
     padding-top: 0.5em;
 }
 
-.contentimage {
+.contentimage, .bookblock {
     float: left;
     margin: 2em 2em 1em 0;
 }
@@ -181,4 +181,6 @@ a {
     float:left;
     width:650px;
 }
+
+/* Books listing page */
 

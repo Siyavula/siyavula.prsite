@@ -57,7 +57,9 @@ class ISection(form.Schema):
         )
     
     embed_code = schema.Text(
-            title=_(u"Youtube embed code for a video for this section."),
+            title=_(u"Youtube embed code"),
+            description=_(u"Youtube embed code for a video for this section. Only use a 280 pixel wide code."),
+            required=False,
         )
 
 class View(grok.View):
@@ -78,6 +80,10 @@ class View(grok.View):
 
 class BooksView(View):
     grok.name('booksview')
+
+    def books(self):
+        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.book'})
+        return [brain.getObject() for brain in brains]
 
 class CoursesView(View):
     grok.name('coursesview')

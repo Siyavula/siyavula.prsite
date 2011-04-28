@@ -5,14 +5,37 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
-<body>
-    <metal:main fill-slot="main">
-        This is the individual section page, admin skin, books view
-    </metal:main>
-    <metal:siyavula_content fill-slot="siyavula_content">
-        This is the individual section page, books view.
-    </metal:siyavula_content>
-</body>
-
+    <body>
+        <metal:siyavula_banner fill-slot="siyavula_banner" tal:define="normal_view nocall:context/@@view">
+            <metal:siyavula_banner_macro use-macro="normal_view/macros/siyavula_banner" />
+        </metal:siyavula_banner>
+        <metal:siyavula_heading fill-slot="siyavula_heading" tal:define="normal_view nocall:context/@@view">
+            <metal:siyavula_heading_macro use-macro="normal_view/macros/siyavula_heading" />
+        </metal:siyavula_heading>
+        <metal:siyavula_content fill-slot="siyavula_content">
+        Woot
+        <div class="contentbox" tal:repeat="book view/books">
+            <div class="bookblock" tal:condition="book/cover">
+                <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=99, height=200, direction='up').tag()" />
+            </div>
+            <div class="bookblock book-1">
+                <h1 tal:content="book/title" />
+                <tal:content tal:replace="structure book/content/output" />
+            </div>
+            <div class="bookblock book-2">
+                <h1>Price &amp; Availability</h1>
+                <p tal:content="book/price" />
+                <p tal:content="book/availability" />
+                <p tal:content="book/shipping" />
+            </div>
+            <div class="bookblock book-3">
+                <p><a tal:attributes="href book/download_link">Download complete book - FREE!</a></p>
+                <p><a tal:attributes="href book/online_link">Read Online - FREE!</a></p>
+                <p><a tal:attributes="href book/buy_link">Order a hard copy - <span tal:replace="book/price" /></a></p>
+            </div>
+            <div class="clear">&nbsp</div>
+        </div>
+        </metal:siyavula_content>
+    </body>
 </html>
 
