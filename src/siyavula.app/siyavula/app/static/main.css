@@ -152,6 +152,9 @@ a {
 .contentimage {
     float: left;
     margin: 2em 2em 1em 0;
+}
+
+.contentimage img {
     border: 1px solid black;
 }
 
