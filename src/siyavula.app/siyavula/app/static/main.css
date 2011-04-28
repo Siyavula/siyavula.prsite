@@ -114,9 +114,14 @@ a {
 }
 
 .colophon {
-    padding: 18px 0 0 40px;
+    padding: 18px 0 0 34px;
     vertical-align: middle;
     color:white;
+    line-height: 2em;
+}
+
+.colophon img {
+    vertical-align: middle;
 }
 
 .heading_button {
