@@ -32,6 +32,12 @@ class IPost(form.Schema):
             required=False
         )
 
+    url = schema.TextLine(
+            title=_(u"URL"),
+            description=_(u"An url this item should point to. In most cases, the post url will be used."),
+            required=False,
+        )
+
 class View(grok.View):
     grok.context(IPost)
     grok.require('zope2.View')
