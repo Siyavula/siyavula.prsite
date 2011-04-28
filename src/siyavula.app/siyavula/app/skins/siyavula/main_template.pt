@@ -31,34 +31,21 @@
                 </tal:sections>
                 </div>
                 <metal:siyavula_banner define-slot="siyavula_banner">
-                <div class="banner">
-                    <div class="banner_text">
-                        <h3>Banner header goes here.</h3>
-                        <p>Banner text Lorem Ipsum</p>
-                    </div>
-                </div>
                 </metal:siyavula_banner>
                 <div class="section">
                 <metal:siyavula_heading define-slot="siyavula_heading">
-                    Heading of sorts
                 </metal:siyavula_heading>
                 </div>
                 <div class="content">
                 <tal:main metal:define-slot="siyavula_content">
-                    Content Lorem ipsum
                 </tal:main>
                 </div>
                 <div class="footer">
                     <div class="footer_wrapper">
-                        <div class="footer_books">
-                            <div tal:repeat="book helpers/books">
-                                <a href="#" tal:attributes="href book/absolute_url">
-                                    <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=90, height=90, direction='up').tag()" />
-                                </a>
-                            </div>
+                        <div class="footer_book" tal:repeat="book helpers/books">
+                                <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=100, height=100, direction='up').tag()" />
                         </div>
                         <div class="footer_blurb">
-                            Blurb goes here
                         </div>
                     </div>
                     <div class="colophon">

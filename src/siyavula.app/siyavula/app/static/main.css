@@ -101,9 +101,9 @@ a {
     height: 156px;
 }
 
-.footer_books {
+.footer_book {
     float: left;
-    padding-left: 45px;
+    padding: 24px 0 0 32px;
 }
 
 .footer_blurb {
