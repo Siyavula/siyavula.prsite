@@ -38,6 +38,12 @@ class IPost(form.Schema):
             required=False,
         )
 
+    form_embed_code = schema.Text(
+            title=_(u"Form embed code"),
+            description=_(u"Use this to embed a google form in the detail view for this post. Normally used for course signups."),
+            required=False,
+        )
+
 class View(grok.View):
     grok.context(IPost)
     grok.require('zope2.View')
