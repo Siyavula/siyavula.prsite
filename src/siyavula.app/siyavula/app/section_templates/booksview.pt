@@ -13,7 +13,6 @@
             <metal:siyavula_heading_macro use-macro="normal_view/macros/siyavula_heading" />
         </metal:siyavula_heading>
         <metal:siyavula_content fill-slot="siyavula_content">
-        Woot
         <div class="contentbox" tal:repeat="book view/books">
             <div class="bookblock" tal:condition="book/cover">
                 <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=99, height=200, direction='up').tag()" />
