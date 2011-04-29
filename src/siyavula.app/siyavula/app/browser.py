@@ -77,6 +77,9 @@ class MainTemplateHelpers(grok.View):
             if ob.header:
                 headers.append(ob)
 
+        # Only one header for now
+        if len(headers) > 1:
+            return headers[:0]
         return headers
 
 class MainTemplateHelpersContent(MainTemplateHelpers):
