@@ -18,18 +18,20 @@
                 <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=99, height=200, direction='up').tag()" />
             </div>
             <div class="bookblock book-1">
-                <h1 tal:content="book/title" />
+                <h3 tal:content="book/title" />
                 <tal:content tal:replace="structure book/content/output" />
             </div>
             <div class="bookblock book-2">
-                <h1>Price &amp; Availability</h1>
+                <h3>Price &amp; Availability</h3>
                 <p tal:content="book/price" />
                 <p tal:content="book/availability" />
                 <p tal:content="book/shipping" />
             </div>
             <div class="bookblock book-3">
                 <p><a tal:attributes="href book/download_link">Download complete book - FREE!</a></p>
+                <br/>
                 <p><a tal:attributes="href book/online_link">Read Online - FREE!</a></p>
+                <br/>
                 <p><a tal:attributes="href book/buy_link">Order a hard copy - <span tal:replace="book/price" /></a></p>
             </div>
             <div class="clear">&nbsp</div>
