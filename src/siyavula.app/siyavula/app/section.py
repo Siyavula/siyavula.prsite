@@ -72,17 +72,9 @@ class View(grok.View):
     grok.context(ISection)
     grok.require('zope2.View')
 
-    def tagline_style(self):
-        colour = self.context.colour
-        if colour:
-            return 'color:#%s;' % colour
-        else:
-            return 'color:#3096d3;'
-
     def posts(self):
         brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post'})
         return [brain.getObject() for brain in brains]
-
 
 class BooksView(View):
     grok.name('booksview')

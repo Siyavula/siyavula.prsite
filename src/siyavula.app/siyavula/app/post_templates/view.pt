@@ -6,12 +6,18 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
 <body>
-    <metal:main fill-slot="main">
-        This is the individual post page.
-    </metal:main>
-    <metal:siyavula_content fill-slot="siyavula_content">
-        This is the individual post page, siyavula skin
-    </metal:siyavula_content>
+        <metal:siyavula_content fill-slot="siyavula_content">
+        <div class="content-left">
+            <span tal:condition=" context/content" tal:replace="structure context/content/output" />
+        </div>
+        <div class="content-right">
+            <div class="contentbox">
+                <br/>
+                <tal:form condition="context/form_embed_code" replace="structure context/form_embed_code" />
+            </div>
+        </div>
+        <div class="clear">&nbsp;</div>
+        </metal:siyavula_content>
 </body>
 
 </html>

@@ -1,7 +1,9 @@
 <tal:master metal:define-macro="master">
 <html lang="en" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
                             portal context/@@plone_portal_state/portal;
-                            helpers nocall:portal/@@main-template-helpers;">
+                            helpers nocall:context/@@main-template-helpers;
+                            section helpers/current_section;
+                            tagline_style helpers/tagline_style;">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>Siyavula</title>
@@ -24,17 +26,32 @@
                     <a tal:attributes="href string:${navroot}">
                         Home
                     </a>
-                <tal:sections tal:repeat="section helpers/sections">
+                <tal:sections tal:repeat="menu_section helpers/sections">
                     |
-                    <a tal:attributes="href section/absolute_url">
-                        <span tal:replace="section/Title" />
+                    <a tal:attributes="href menu_section/absolute_url">
+                        <span tal:replace="menu_section/Title" />
                     </a>
                 </tal:sections>
                 </div>
                 <metal:siyavula_banner define-slot="siyavula_banner">
+                <tal:ifsection tal:condition="nocall:section">
+                <div class="banner" tal:condition="section/header">
+                    <div class="banner_text" tal:content="structure section/headerblurb/output">
+                    </div>
+                    <img tal:condition="section/header" tal:define="scale section/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+                </div>
+                </tal:ifsection>
                 </metal:siyavula_banner>
                 <div class="section">
                 <metal:siyavula_heading define-slot="siyavula_heading">
+                <tal:ifsection tal:condition="nocall:section">
+                    <div class="heading_button" tal:condition="section/button">
+                        <img tal:define="scale section/@@images" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
+                    </div>
+                    <div class="tagline" tal:attributes="style tagline_style">
+                        <span tal:condition="section/tagline" tal:content="section/tagline" /><span tal:condition="not:section/tagline">Siyavula, Incredible Educational Resources.</span>
+                    </div>
+                </tal:ifsection>
                 </metal:siyavula_heading>
                 </div>
                 <div class="content">

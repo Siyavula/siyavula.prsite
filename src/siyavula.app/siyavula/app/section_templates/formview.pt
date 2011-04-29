@@ -7,12 +7,6 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
     <body>
-        <metal:siyavula_banner fill-slot="siyavula_banner" tal:define="normal_view nocall:context/@@view">
-            <metal:siyavula_banner_macro use-macro="normal_view/macros/siyavula_banner" />
-        </metal:siyavula_banner>
-        <metal:siyavula_heading fill-slot="siyavula_heading" tal:define="normal_view nocall:context/@@view">
-            <metal:siyavula_heading_macro use-macro="normal_view/macros/siyavula_heading" />
-        </metal:siyavula_heading>
         <metal:siyavula_content fill-slot="siyavula_content">
         <div class="content-left">
             <span tal:condition=" context/content" tal:replace="structure context/content/output" />

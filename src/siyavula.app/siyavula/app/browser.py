@@ -4,6 +4,7 @@ from Acquisition import aq_inner
 from plone.memoize import view
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.interfaces import IContentish, ISiteRoot
+from siyavula.app.section import ISection
 
 class MainTemplateHelpers(grok.View):
     """Get some dynamic things we need in the main template.
@@ -18,19 +19,32 @@ class MainTemplateHelpers(grok.View):
         """
         return ''
 
+    def portal(self):
+        return self.context
+
     @view.memoize
     def sections(self):
-        context = aq_inner(self.context)
-        portal = context.portal_url.getPortalObject()
+        portal = self.portal()
         sections = portal.getFolderContents({'portal_type':'siyavula.app.section'})
         return [i.getObject() for i in sections]
         
     @view.memoize
+    def current_section(self, context=None):
+        return None
+
+    @view.memoize
+    def tagline_style(self):
+        section = self.current_section()
+        if section and section.colour:
+            return 'color:#%s;' % section.colour
+        else:
+            return 'color:#3096d3;'
+
+    @view.memoize
     def books(self):
-        """Get the message representation of the context
+        """Get the books.
         """
         context = aq_inner(self.context)
-        portal = context.portal_url.getPortalObject()
         pc = getToolByName(context, 'portal_catalog')
         query = {'portal_type' : 'siyavula.app.book',
                  'review_state' : 'published',
@@ -40,10 +54,31 @@ class MainTemplateHelpers(grok.View):
         return [brain.getObject() for brain in brains][:5]
 
     def books_blurb(self):
-        context = aq_inner(self.context)
-        portal = context.portal_url.getPortalObject()
+        portal = self.portal()
         settings = portal.settings
         return settings.books_blurb.output
+
+class MainTemplateHelpersContent(MainTemplateHelpers):
+    """Get some dynamic things we need in the main template.
+    """
+    
+    grok.context(IContentish)
+    grok.require('zope2.View')
+    grok.name('main-template-helpers')
+    
+    def portal(self):
+        context = aq_inner(self.context)
+        return context.portal_url.getPortalObject()
+
+    @view.memoize
+    def current_section(self, context=None):
+        if not context:
+            context = aq_inner(self.context)
+        if ISection.providedBy(context):
+            return context
+        if ISiteRoot.providedBy(context):
+            return None
+        return self.current_section(context=context.__parent__)
 
 class FrontPageView(grok.View):
     """Get some dynamic things we need in the main template.
