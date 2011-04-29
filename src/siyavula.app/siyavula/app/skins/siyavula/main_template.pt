@@ -59,6 +59,11 @@
                         <span tal:condition="section/tagline" tal:content="section/tagline" /><span tal:condition="not:section/tagline">Siyavula, Incredible Educational Resources.</span>
                     </div>
                 </tal:ifsection>
+                <tal:ifnosection tal:condition="not:nocall:section">
+                    <div class="tagline" tal:attributes="style tagline_style">
+                        <span>Siyavula, Incredible Educational Resources.</span>
+                    </div>
+                </tal:ifnosection>
                 </metal:siyavula_heading>
                 </div>
                 <div class="content">
