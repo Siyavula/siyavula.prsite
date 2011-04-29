@@ -62,6 +62,12 @@ class ISection(form.Schema):
             required=False,
         )
 
+    form_embed_code = schema.Text(
+            title=_(u"Form embed code"),
+            description=_(u"Form embed code. This is to be used with the form layout."),
+            required=False,
+        )
+
 class View(grok.View):
     grok.context(ISection)
     grok.require('zope2.View')
@@ -88,8 +94,8 @@ class BooksView(View):
 class CoursesView(View):
     grok.name('coursesview')
 
-class VolunteersView(View):
-    grok.name('volunteersview')
+class FormView(View):
+    grok.name('formview')
 
 class BlogView(View):
     grok.name('blogview')

@@ -42,7 +42,7 @@ def setupVarious(context):
         'view': 'view'},
         {'id': 'volunteers',
         'title': 'Volunteers',
-        'view': 'volunteersview'},
+        'view': 'formview'},
         {'id': 'courses',
         'title': 'Courses',
         'view': 'coursesview'},
