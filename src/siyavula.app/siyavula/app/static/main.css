@@ -73,7 +73,38 @@ a {
     color: #3096d3;
     background:#ffffff;
     width:350px;
+    height:150px;
     padding: 0 10px 0 10px;
+}
+
+.banner_form {
+    position:absolute;
+    right: -43px;
+    top: 180px;
+    background: url('search_bar_home.png') no-repeat;
+    width:562px;
+    height:126px;
+    padding: 0;
+}
+
+.banner_form_inside {
+    padding: 29px 0 0 130px;
+}
+
+.banner_form_inside input {
+    vertical-align: middle;
+}
+
+input#textbox {
+    border: 0px;
+    vertical-align: middle;
+    margin-right: 40px;
+    font-size: 150%;
+    width:180px;
+}
+
+.defaultTextActive {
+    color: #aaaaaa;
 }
 
 .section {

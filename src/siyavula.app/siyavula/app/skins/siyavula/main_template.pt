@@ -11,6 +11,7 @@
               href="#"
               tal:attributes="href string:${navroot}/++resource++siyavula.app/main.css">
         <script tal:attributes="src string:${navroot}/++resource++siyavula.app/jquery-1.5.2.min.js"></script>
+        <script tal:attributes="src string:${navroot}/++resource++siyavula.app/tools.js"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -38,6 +39,11 @@
                 <tal:ifsection tal:condition="nocall:section">
                 <div class="banner" tal:condition="section/header">
                     <div class="banner_text" tal:content="structure section/headerblurb/output">
+                    </div>
+                    <div class="banner_form">
+                        <div class="banner_form_inside">
+                        <form><input id="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
+                        </div>
                     </div>
                     <img tal:condition="section/header" tal:define="scale section/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
                 </div>
