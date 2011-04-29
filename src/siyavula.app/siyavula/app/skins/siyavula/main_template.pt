@@ -37,17 +37,36 @@
                 </div>
                 <metal:siyavula_banner define-slot="siyavula_banner">
                 <tal:ifsection tal:condition="nocall:section">
-                <div class="banner" tal:condition="section/header">
-                    <div class="banner_text" tal:content="structure section/headerblurb/output">
+                <div class="banner" tal:condition="helpers/headers">
+                    <tal:header_blurbs tal:repeat="header helpers/headers">
+                    <div class="banner_text" tal:content="structure header/headerblurb/output">
                     </div>
+                    </tal:header_blurbs>
+                    <div class="banner_form">
+                        <div class="banner_form_inside">
+                        </div>
+                    </div>
+                    <tal:header_images tal:repeat="header helpers/headers">
+                    <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+                    </tal:header_images>
+                </div>
+                </tal:ifsection>
+                <tal:ifnosection tal:condition="not:nocall:section">
+                <div class="banner" tal:condition="helpers/headers">
+                    <tal:header_blurbs tal:repeat="header helpers/headers">
+                    <div class="banner_text" tal:content="structure header/headerblurb/output">
+                    </div>
+                    </tal:header_blurbs>
                     <div class="banner_form">
                         <div class="banner_form_inside">
                         <form><input id="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
                         </div>
                     </div>
-                    <img tal:condition="section/header" tal:define="scale section/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+                    <tal:header_images tal:repeat="header helpers/headers">
+                    <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+                    </tal:header_images>
                 </div>
-                </tal:ifsection>
+                </tal:ifnosection>
                 </metal:siyavula_banner>
                 <div class="section">
                 <metal:siyavula_heading define-slot="siyavula_heading">

@@ -3,4 +3,5 @@
  <object name="siyavula.app.post" meta_type="Dexterity FTI" />
  <object name="siyavula.app.section" meta_type="Dexterity FTI" />
  <object name="siyavula.app.settings" meta_type="Dexterity FTI" />
+ <object name="siyavula.app.header" meta_type="Dexterity FTI" />
 </object>

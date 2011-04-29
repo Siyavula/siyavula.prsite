@@ -20,7 +20,7 @@ class MainTemplateHelpers(grok.View):
         return ''
 
     def portal(self):
-        return self.context
+        return aq_inner(self.context)
 
     @view.memoize
     def sections(self):
@@ -58,6 +58,27 @@ class MainTemplateHelpers(grok.View):
         settings = portal.settings
         return settings.books_blurb.output
 
+    def headers(self):
+        """
+        Return all the available headers in a list, so that we can use the
+        headers logic for normal page and the home page.
+        """
+        portal = self.portal()
+        settings = portal.settings
+        headers = []
+        pc = getToolByName(portal, 'portal_catalog')
+        query = {'portal_type' : 'siyavula.app.header',
+                 'review_state' : 'published',
+                 'sort_on' : 'getObjPositionInParent',
+                }
+        brains = pc(query)
+        for brain in brains:
+            ob = brain.getObject()
+            if ob.header:
+                headers.append(ob)
+
+        return headers
+
 class MainTemplateHelpersContent(MainTemplateHelpers):
     """Get some dynamic things we need in the main template.
     """
@@ -79,6 +100,16 @@ class MainTemplateHelpersContent(MainTemplateHelpers):
         if ISiteRoot.providedBy(context):
             return None
         return self.current_section(context=context.__parent__)
+
+    def headers(self):
+        """
+        Return just the current section in a list, so that we can use the
+        headers logic for normal page and the home page.
+        """
+        section = self.current_section()
+        if section and section.header:
+            return [section]
+        return []
 
 class FrontPageView(grok.View):
     """Get some dynamic things we need in the main template.

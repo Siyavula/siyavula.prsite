@@ -6,10 +6,6 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
 <body>
-    <metal:siyavula_banner fill-slot="siyavula_banner">
-        <div class="banner" tal:condition="view/banners">
-        </div>
-    </metal:siyavula_banner>
     <metal:siyavula_heading fill-slot="siyavula_heading">
         <div class="heading_button" tal:repeat="feature view/features">
         <img tal:define="scale feature/@@images" tal:condition="feature/button" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
