@@ -32,7 +32,7 @@
                 <br/>
                 <p><a tal:attributes="href book/online_link">Read Online - FREE!</a></p>
                 <br/>
-                <p><a tal:attributes="href book/buy_link">Order a hard copy - <span tal:replace="book/price" /></a></p>
+                <p><a tal:attributes="href string:${context/absolute_url}/@@formview;">Order a hard copy - <span tal:replace="book/price" /></a></p>
             </div>
             <div class="clear">&nbsp</div>
         </div>

@@ -62,12 +62,6 @@ class IBook(form.Schema):
             required=False
         )
     
-    buy_link = schema.TextLine(
-            title=_(u"Buy link"),
-            description=_(u"Link to buy the book."),
-            required=False
-        )
-    
 class View(grok.View):
     grok.context(IBook)
     grok.require('zope2.View')
