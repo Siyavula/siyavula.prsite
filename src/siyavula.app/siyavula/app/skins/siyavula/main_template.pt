@@ -10,16 +10,17 @@
         <link rel="stylesheet" type="text/css" media="screen, projection"
               href="#"
               tal:attributes="href string:${navroot}/++resource++siyavula.app/main.css">
+        <script tal:attributes="src string:${navroot}/++resource++siyavula.app/jquery-1.5.2.min.js"></script>
     </head>
     <body>
         <div class="wrapper">
             <div class="container">
                 <div class="header">
                     <div class="logo">
-                        <a href="#"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/siyavula_logo.png" /></a>
+                        <a href="#" tal:attributes="href string:${navroot}"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/siyavula_logo.png" /></a>
                     </div>
                     <div class="shuttleworth_logo">
-                        <a href="#"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/shuttleworth_foundation_logo.png" /></a>
+                        <a href="http://www.shuttleworthfoundation.org/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/shuttleworth_foundation_logo.png" /></a>
                     </div>
                 </div>
                 <div class="menubar">
