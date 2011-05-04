@@ -79,7 +79,7 @@ class MainTemplateHelpers(grok.View):
 
         # Only one header for now
         if len(headers) > 1:
-            return headers[:0]
+            return headers[:1]
         return headers
 
 class MainTemplateHelpersContent(MainTemplateHelpers):
