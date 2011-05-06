@@ -15,7 +15,7 @@
     </metal:siyavula_heading>
     <metal:siyavula_content fill-slot="siyavula_content">
         <div class="content-left" tal:repeat="feature view/features">
-        <tal:content condition="feature/content" replace="structure feature/content/output" />
+        <tal:content condition="feature/frontpage_content" replace="structure feature/frontpage_content/output" />
         <tal:embed condition="feature/embed_code" replace="structure feature/embed_code" />
         </div>
         <div class="clear">&nbsp;</div>

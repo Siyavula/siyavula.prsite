@@ -52,10 +52,16 @@ class ISection(form.Schema):
 
     content = RichText(
             title=_(u"Content"),
-            description=_(u"A longer description. Used in the section page, if any. Also used if the section is one of the 3 displayed on the front page."),
+            description=_(u"A longer description. Used in the section page, if the section view has an area for long-form text."),
             required=False,
         )
-    
+
+    frontpage_content = RichText(
+            title=_(u"Front Page Content"),
+            description=_(u"This field is used if the section is one of the 3 displayed on the front page."),
+            required=False,
+        )
+
     embed_code = schema.Text(
             title=_(u"Youtube embed code"),
             description=_(u"Youtube embed code for a video for this section. Only use a 280 pixel wide code."),
