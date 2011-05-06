@@ -8,7 +8,9 @@
 <body>
     <metal:siyavula_heading fill-slot="siyavula_heading">
         <div class="heading_button" tal:repeat="feature view/features">
+        <a href="#" tal:condition="feature/button" tal:attributes="href feature/absolute_url">
         <img tal:define="scale feature/@@images" tal:condition="feature/button" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
+        </a>
         </div>
     </metal:siyavula_heading>
     <metal:siyavula_content fill-slot="siyavula_content">
