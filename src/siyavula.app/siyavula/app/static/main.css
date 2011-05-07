@@ -61,9 +61,29 @@ a {
     color:white;
 }
 
-.banner {
+#banner-wrapper {
     width: 1000px;
+    height: 340px;
     position:relative;
+}
+
+.banners {
+    width: 1000px;
+    height: 340px;
+    position:absolute;
+}
+
+.banner {
+    position:absolute;
+    z-index:8;
+}
+
+.banner.banner-active {
+    z-index: 10;
+}
+
+.banner.last-active {
+    z-index: 9;
 }
 
 .banner_text {
@@ -85,6 +105,7 @@ a {
     width:562px;
     height:126px;
     padding: 0;
+    z-index: 11;
 }
 
 .banner_form_inside {
