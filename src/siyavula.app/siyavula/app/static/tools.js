@@ -1,5 +1,9 @@
 // This is an adaptation of http://jonraasch.com/blog/a-simple-jquery-slideshow
 function slideSwitch() {
+    if ($('.banner').length <= 1 ) {
+        clearInterval(ss_interval);
+        return;
+    }
     var $active = $('.banner.banner-active');
 
     if ( $active.length == 0 ) $active = $('.banner:last');
@@ -46,7 +50,10 @@ function checkPreload() {
     });
     if ( $('.banner').length == loadeds ) {
         clearInterval(preload_interval_id);
-        setInterval(slideSwitch, 5000 );
+        $('.banner').each(function(index) {
+            $(this).removeClass('hidden');
+        });
+        ss_interval = setInterval(slideSwitch, 5000 );
     }
 }
 

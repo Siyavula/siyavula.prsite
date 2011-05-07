@@ -78,6 +78,10 @@ a {
     z-index:8;
 }
 
+.banner.hidden {
+    display:none;
+}
+
 .banner.banner-active {
     z-index: 10;
 }

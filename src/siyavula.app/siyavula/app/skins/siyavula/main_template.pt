@@ -39,11 +39,13 @@
                 <tal:ifsection tal:condition="nocall:section">
                 <div id="banner-wrapper">
                     <div class="banners" tal:condition="helpers/headers">
-                        <div class="banner" tal:repeat="header helpers/headers">
+                        <tal:banner tal:repeat="header helpers/headers">
+                        <div class="banner" tal:attributes="class python:repeat['header']['start'] and 'banner' or 'banner hidden'">
                             <div class="banner_text" tal:content="structure header/headerblurb/output">
                             </div>
                             <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
                         </div>
+                        </tal:banner>
                     </div>
                     <div class="banner_form">
                         <div class="banner_form_inside">
@@ -54,11 +56,13 @@
                 <tal:ifnosection tal:condition="not:nocall:section">
                 <div id="banner-wrapper">
                     <div class="banners" tal:condition="helpers/headers">
-                        <div class="banner" tal:repeat="header helpers/headers">
+                        <tal:banner tal:repeat="header helpers/headers">
+                        <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
                             <div class="banner_text" tal:content="structure header/headerblurb/output">
                             </div>
                             <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
                         </div>
+                        </tal:banner>
                     </div>
                     <div class="banner_form">
                         <div class="banner_form_inside">
