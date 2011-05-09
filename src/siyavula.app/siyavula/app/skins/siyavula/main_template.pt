@@ -37,8 +37,8 @@
                 </div>
                 <metal:siyavula_banner define-slot="siyavula_banner">
                 <tal:ifsection tal:condition="nocall:section">
-                <div id="banner-wrapper">
-                    <div class="banners" tal:condition="helpers/headers">
+                <div id="banner-wrapper" tal:condition="helpers/headers">
+                    <div class="banners">
                         <tal:banner tal:repeat="header helpers/headers">
                         <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
                             <div class="banner_text" tal:content="structure header/headerblurb/output">
