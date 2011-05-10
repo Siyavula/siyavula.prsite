@@ -92,4 +92,17 @@ $(document).ready(function()
     // Banner rotator
     // Get the set of images and preload.
     preload_interval_id = setInterval(checkPreload, 1000);
+
+    // Email the user input to the portal address.
+    $("#emailbutton").click(function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        action = $('form#mailform').attr('action');
+        $.get(action+'?email='+$("#textbox").val(), function(data) {
+            alert(data);
+        });
+        $("#textbox").val("");
+        $("#textbox").blur();
+    });
+
 });

@@ -148,7 +148,7 @@ class MailForm(grok.View):
         portal = portal_url.getPortalObject()
         mail_to = portal.getProperty('email_from_address')
         if mail_to is None or len(mail_to) < 1:
-            return
+            return 'An error has occurred. Please contact the site administrators.'
 
         mail_from = mail_to
         # get the basic mail settings and details
@@ -157,8 +157,8 @@ class MailForm(grok.View):
         # Compose email        
         subject = "Email form result"
         message = """The following email address asked to be included in your mailing list:
-%s""" % self.form['email']
+%s""" % self.context.REQUEST.get('email', 'No email')
                   
         # Send email
         mail_host.secureSend(message, mail_to, mail_from, subject=subject)
-        return 'ok'
+        return 'Your email was successfully submitted.'

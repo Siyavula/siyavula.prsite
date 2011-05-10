@@ -6,6 +6,10 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
     <body>
+        <metal:banner fill-slot="banner_form">
+        <metal:use metal:use-macro="context/main_template/macros/shortcode_form" >
+        </metal:use>
+        </metal:banner>
         <metal:siyavula_content fill-slot="siyavula_content">
         <div class="contentbox" tal:repeat="book view/books">
             <div class="bookblock" tal:condition="book/cover">

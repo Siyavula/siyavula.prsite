@@ -35,7 +35,6 @@
                     </a>
                 </tal:sections>
                 </div>
-                <metal:siyavula_banner define-slot="siyavula_banner">
                 <tal:ifsection tal:condition="nocall:section">
                 <div id="banner-wrapper" tal:condition="helpers/headers">
                     <div class="banners">
@@ -47,10 +46,13 @@
                         </div>
                         </tal:banner>
                     </div>
-                    <div class="banner_form">
-                        <div class="banner_form_inside">
+                    <metal:banner_form define-slot="banner_form">
+                    <div class="banner_form_email">
+                        <div class="banner_form_email_inside">
+                        <form id="mailform" tal:attributes="action string:${navroot}/@@mailform"><input id="textbox" class="textbox" type="text" title="Email Address" value="" name="email"><input id="emailbutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
                         </div>
                     </div>
+                    </metal:banner_form>
                 </div>
                 </tal:ifsection>
                 <tal:ifnosection tal:condition="not:nocall:section">
@@ -64,14 +66,15 @@
                         </div>
                         </tal:banner>
                     </div>
+                    <metal:shortcode_form define-macro="shortcode_form">
                     <div class="banner_form">
                         <div class="banner_form_inside">
-                        <form><input id="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
+                        <form><input id="textbox" class="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
                         </div>
                     </div>
+                    </metal:shortcode_form>
                 </div>
                 </tal:ifnosection>
-                </metal:siyavula_banner>
                 <div class="section">
                 <metal:siyavula_heading define-slot="siyavula_heading">
                 <tal:ifsection tal:condition="nocall:section">
