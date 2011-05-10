@@ -132,3 +132,33 @@ class FrontPageView(grok.View):
         return [settings.left_section.to_object,
                 settings.center_section.to_object,
                 settings.right_section.to_object]
+
+
+class MailForm(grok.View):
+    """ Mail things. """
+
+    grok.context(ISiteRoot)
+    grok.require('zope2.View')
+    grok.name('mailform')
+
+    def render(self):
+        """ Mail the form contents """
+        mail_host = getToolByName(self.context, 'MailHost')
+        portal_url = getToolByName(self.context, 'portal_url')
+        portal = portal_url.getPortalObject()
+        mail_to = portal.getProperty('email_from_address')
+        if mail_to is None or len(mail_to) < 1:
+            return
+
+        mail_from = mail_to
+        # get the basic mail settings and details
+        mail_host = getToolByName(self.context, 'MailHost')
+
+        # Compose email        
+        subject = "Email form result"
+        message = """The following email address asked to be included in your mailing list:
+%s""" % self.form['email']
+                  
+        # Send email
+        mail_host.secureSend(message, mail_to, mail_from, subject=subject)
+        return 'ok'
