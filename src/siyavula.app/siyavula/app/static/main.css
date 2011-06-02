@@ -242,6 +242,10 @@ input.textbox {
     clear:both;
 }
 
+.image-inline {
+    margin:15px;
+}
+
 /* Split content page */
 
 .content-left {
