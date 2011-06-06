@@ -242,6 +242,11 @@ input.textbox {
     clear:both;
 }
 
+/* post images should have some padding. */
+div.post_content img {
+    margin: 1em;
+}
+
 /* Split content page */
 
 .content-left {

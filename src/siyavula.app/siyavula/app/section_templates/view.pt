@@ -17,7 +17,9 @@
                 </a>
             </div>
             <h1 tal:content="post/title" />
-            <tal:content tal:replace="structure post/content/output" />
+            <div class="post_content">
+                <tal:content tal:replace="structure post/content/output" />
+            </div>
             <div class="clear">&nbsp</div>
         </div>
         </metal:siyavula_content_macro>
