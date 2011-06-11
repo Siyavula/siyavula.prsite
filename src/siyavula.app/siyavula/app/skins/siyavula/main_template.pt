@@ -99,7 +99,9 @@
                 <div class="footer">
                     <div class="footer_wrapper">
                         <div class="footer_book" tal:repeat="book helpers/books">
-                                <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=100, height=100, direction='up').tag()" />
+                                <a tal:omit-tag="not:book/download_link" tal:attributes="href book/download_link">
+                                    <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=100, height=100, direction='up').tag()" />
+                                </a>
                         </div>
                         <div class="footer_blurb" tal:condition="helpers/books_blurb" tal:content="structure helpers/books_blurb">
                         </div>
