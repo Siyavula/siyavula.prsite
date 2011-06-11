@@ -99,6 +99,6 @@ class BlogView(View):
     grok.name('blogview')
 
     def posts(self):
-        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post', 'sort_on': 'created', 'sort_order': 'reverse'})
+        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post', 'sort_on': 'modified', 'sort_order': 'reverse'})
         return [brain.getObject() for brain in brains]
 
