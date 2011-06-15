@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="header">
                     <div class="logo">
-                        <a href="#" tal:attributes="href string:${navroot}"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/siyavula_logo.png" /></a>
+                        <a href="#" tal:attributes="href string:${navroot}"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/new_siyavula.png" /></a>
                     </div>
                     <div class="shuttleworth_logo">
                         <a href="http://www.shuttleworthfoundation.org/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/shuttleworth_foundation_logo.png" /></a>

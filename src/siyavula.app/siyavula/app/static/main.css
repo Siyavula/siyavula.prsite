@@ -17,14 +17,14 @@ body {
 }
 
 .header {
-    height:107px;
+    height:115px;
     width:1027px;
     background: url('header.png');
 }
 
 .logo {
     float:left;
-    padding: 22px 0 0 46px;
+    padding: 6px 0 0 46px;
 }
 
 .shuttleworth_logo {
