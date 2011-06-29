@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="colophon">
-                        <a href="http://creativecommons.org/licenses/by/3.0/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/cc_88x31.png"></a> <span>&nbsp;&nbsp;&nbsp;This site and its content is licensed under the cc-BY creative commons license.</span>
+                        <a href="http://creativecommons.org/licenses/by/3.0/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/cc_88x31.png"></a> <span>&nbsp;&nbsp;&nbsp;This site and its content is licensed under the CC-BY creative commons license.</span>
                     </div>
                 </div>
             </div>
