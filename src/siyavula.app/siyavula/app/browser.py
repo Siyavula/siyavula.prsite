@@ -56,6 +56,8 @@ class MainTemplateHelpers(grok.View):
     def books_blurb(self):
         portal = self.portal()
         settings = portal.settings
+        if not settings.books_blurb:
+            return ''
         return settings.books_blurb.output
 
     def headers(self):
@@ -129,9 +131,9 @@ class FrontPageView(grok.View):
     def features(self):
         """ Return featured sections"""
         settings = self.get_settings()
-        return [settings.left_section.to_object,
-                settings.center_section.to_object,
-                settings.right_section.to_object]
+        return [settings.left_section.to_object if settings.left_section else None,
+                settings.center_section.to_object if settings.center_section else None,
+                settings.right_section.to_object if settings.right_section else None]
 
 
 class MailForm(grok.View):
