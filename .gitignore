@@ -4,12 +4,14 @@
 .mr.developer.cfg
 adminPassword.txt
 PloneController.app
+backup/
 bin/
 develop-eggs/
 include/
 lib/
 parts/
 products/
+tags
 var/
 distribute-0.6.10.tar.gz
 src/siyavula.app/Paste-1.7.5.1-py2.6.egg/
