@@ -24,10 +24,4 @@
   <!-- Register the Siyavula skin directory -->
   <cmf:registerDirectory name="siyavula"/>
 
-  <!-- skinswitcher to plone admin skin, based on url. -->
-  <subscriber
-       for="Products.CMFPlone.interfaces.IPloneSiteRoot
-            zope.app.publication.interfaces.IBeforeTraverseEvent"
-       handler=".skinswitcher.setSkin" />
-
 </configure>
