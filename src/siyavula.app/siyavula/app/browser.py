@@ -7,33 +7,36 @@ from Products.CMFCore.interfaces import IContentish, ISiteRoot
 from siyavula.app.section import ISection
 
 class MainTemplateHelpers(grok.View):
-    """Get some dynamic things we need in the main template.
-    """
+    """Get some dynamic things we need in the main template."""
     
     grok.context(ISiteRoot)
     grok.require('zope2.View')
     grok.name('main-template-helpers')
     
     def render(self):
-        """No-op to keep grok.View happy
-        """
+        """No-op to keep grok.View happy."""
         return ''
 
     def portal(self):
+        """Return the portal object."""
         return aq_inner(self.context)
 
     @view.memoize
     def sections(self):
+        """Get the sections in the portal root."""
         portal = self.portal()
-        sections = portal.getFolderContents({'portal_type':'siyavula.app.section'})
+        sections = portal.getFolderContents(
+                {'portal_type':'siyavula.app.section'})
         return [i.getObject() for i in sections]
         
     @view.memoize
     def current_section(self, context=None):
+        """If we are in the portal root, there is no current section."""
         return None
 
     @view.memoize
     def tagline_style(self):
+        """Return a hex color string for styling the tagline."""
         section = self.current_section()
         if section and section.colour:
             return 'color:#%s;' % section.colour
@@ -42,8 +45,7 @@ class MainTemplateHelpers(grok.View):
 
     @view.memoize
     def books(self):
-        """Get the books.
-        """
+        """Get the books to show at the bottom of the page."""
         context = aq_inner(self.context)
         pc = getToolByName(context, 'portal_catalog')
         query = {'portal_type' : 'siyavula.app.book',
@@ -54,17 +56,19 @@ class MainTemplateHelpers(grok.View):
         return [brain.getObject() for brain in brains][:5]
 
     def books_blurb(self):
+        """Return the editable blurb used at the bottom next to the books."""
         portal = self.portal()
         settings = portal.settings
         return settings.books_blurb.output
 
     def headers(self):
-        """
+        """Return all available header images.
+
         Return all the available headers in a list, so that we can use the
         headers logic for normal page and the home page.
+
         """
         portal = self.portal()
-        settings = portal.settings
         headers = []
         pc = getToolByName(portal, 'portal_catalog')
         query = {'portal_type' : 'siyavula.app.header',
@@ -80,19 +84,20 @@ class MainTemplateHelpers(grok.View):
         return headers
 
 class MainTemplateHelpersContent(MainTemplateHelpers):
-    """Get some dynamic things we need in the main template.
-    """
+    """Get some dynamic things we need in the main template."""
     
     grok.context(IContentish)
     grok.require('zope2.View')
     grok.name('main-template-helpers')
     
     def portal(self):
+        """Get the portal object."""
         context = aq_inner(self.context)
         return context.portal_url.getPortalObject()
 
     @view.memoize
     def current_section(self, context=None):
+        """Return the current section, used to determine headers etc."""
         if not context:
             context = aq_inner(self.context)
         if ISection.providedBy(context):
@@ -102,9 +107,11 @@ class MainTemplateHelpersContent(MainTemplateHelpers):
         return self.current_section(context=context.__parent__)
 
     def headers(self):
-        """
+        """Return the current section if it has a header image.
+
         Return just the current section in a list, so that we can use the
         headers logic for normal page and the home page.
+
         """
         section = self.current_section()
         if section and section.header:
@@ -112,22 +119,22 @@ class MainTemplateHelpersContent(MainTemplateHelpers):
         return []
 
 class FrontPageView(grok.View):
-    """Get some dynamic things we need in the main template.
-    """
+    """Get some dynamic things we need in the front page template."""
     
     grok.context(ISiteRoot)
     grok.require('zope2.View')
     grok.name('frontpageview')
 
     def get_settings(self):
+        """Get the site settings object."""
         return self.context.settings
 
     def banners(self):
-        """ Return banners for rotating """
+        """ Return banners for rotating."""
         return []
 
     def features(self):
-        """ Return featured sections"""
+        """ Return featured sections."""
         settings = self.get_settings()
         return [settings.left_section.to_object,
                 settings.center_section.to_object,
@@ -135,14 +142,14 @@ class FrontPageView(grok.View):
 
 
 class MailForm(grok.View):
-    """ Mail things. """
+    """Mail things."""
 
     grok.context(ISiteRoot)
     grok.require('zope2.View')
     grok.name('mailform')
 
     def render(self):
-        """ Mail the form contents """
+        """Mail the form contents."""
         mail_host = getToolByName(self.context, 'MailHost')
         portal_url = getToolByName(self.context, 'portal_url')
         portal = portal_url.getPortalObject()

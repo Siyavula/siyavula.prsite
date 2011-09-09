@@ -1,7 +1,6 @@
-from five import grok
 from zope import schema
 
-from plone.directives import form, dexterity
+from plone.directives import form
 
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage
@@ -9,8 +8,7 @@ from plone.namedfile.field import NamedImage
 from siyavula.app import _
 
 class IHeader(form.Schema):
-    """A header image.
-    """
+    """A header image."""
     
     title = schema.TextLine(
             title=_(u"Title"),

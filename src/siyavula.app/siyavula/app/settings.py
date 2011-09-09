@@ -4,17 +4,15 @@ from zope import schema
 from z3c.relationfield.schema import RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
-from plone.directives import form, dexterity
+from plone.directives import form
 
 from plone.app.textfield import RichText
-from plone.namedfile.field import NamedImage
 from siyavula.app.section import ISection
 
 from siyavula.app import _
 
 class ISettings(form.Schema):
-    """ Settings for the site. 
-    """
+    """Settings for the site."""
     
     title = schema.TextLine(
             title=_(u"Title"),
@@ -45,5 +43,6 @@ class ISettings(form.Schema):
         )
 
 class View(grok.View):
+    """View for the site settings."""
     grok.context(ISettings)
     grok.require('zope2.View')

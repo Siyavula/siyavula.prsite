@@ -6,7 +6,7 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
     <body>
-        <metal:siyavula_content fill-slot="siyavula_content" tal:define="normal_view nocall:context/@@view">
+        <metal:siyavula_content fill-slot="content" tal:define="normal_view nocall:context/@@view">
         <div class="content-left">
             <span tal:condition=" context/content" tal:replace="structure context/content/output" />
         </div>

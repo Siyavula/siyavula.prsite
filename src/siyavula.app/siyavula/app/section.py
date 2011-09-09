@@ -1,7 +1,7 @@
 from five import grok
 from zope import schema
 
-from plone.directives import form, dexterity
+from plone.directives import form
 
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage
@@ -9,8 +9,7 @@ from plone.namedfile.field import NamedImage
 from siyavula.app import _
 
 class ISection(form.Schema):
-    """A site section folder.
-    """
+    """A site section folder."""
     
     title = schema.TextLine(
             title=_(u"Title"),
@@ -75,30 +74,43 @@ class ISection(form.Schema):
         )
 
 class View(grok.View):
+    """The normal section view."""
     grok.context(ISection)
     grok.require('zope2.View')
 
     def posts(self):
-        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post'})
+        """Return the blog posts in the folder."""
+        brains = self.context.getFolderContents(
+            {'portal_type': 'siyavula.app.post'})
         return [brain.getObject() for brain in brains]
 
 class BooksView(View):
+    """Book listing view."""
     grok.name('booksview')
 
     def books(self):
-        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.book'})
+        """Return the books in the folder."""
+        brains = self.context.getFolderContents(
+                {'portal_type': 'siyavula.app.book'})
         return [brain.getObject() for brain in brains]
 
 class CoursesView(View):
+    """Courses listing view."""
     grok.name('coursesview')
 
 class FormView(View):
+    """View for online forms."""
     grok.name('formview')
 
 class BlogView(View):
+    """Blog post listing view."""
     grok.name('blogview')
 
     def posts(self):
-        brains = self.context.getFolderContents({'portal_type': 'siyavula.app.post', 'sort_on': 'modified', 'sort_order': 'reverse'})
+        """Return blog posts, sorted by date."""
+        brains = self.context.getFolderContents(
+                {'portal_type': 'siyavula.app.post',
+                 'sort_on': 'modified',
+                 'sort_order': 'reverse'})
         return [brain.getObject() for brain in brains]
 
