@@ -21,7 +21,4 @@
       />
   <!-- -*- extra stuff goes here -*- -->
   
-  <!-- Register the Siyavula skin directory -->
-  <cmf:registerDirectory name="siyavula"/>
-
 </configure>
