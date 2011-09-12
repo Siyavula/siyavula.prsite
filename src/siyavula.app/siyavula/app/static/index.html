@@ -1,115 +1,178 @@
-<html lang="en" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
-                            portal context/@@plone_portal_state/portal;
-                            helpers nocall:context/@@main-template-helpers;
-                            section helpers/current_section;
-                            tagline_style helpers/tagline_style;">
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
         <title>Siyavula</title>
-        <link rel="stylesheet" type="text/css" media="screen, projection"
-              href="#"
-              tal:attributes="href string:${navroot}/++resource++siyavula.app/main.css">
-        <script tal:attributes="src string:${navroot}/++resource++siyavula.app/jquery-1.5.2.min.js"></script>
-        <script tal:attributes="src string:${navroot}/++resource++siyavula.app/tools.js"></script>
+        <link rel="stylesheet" type="text/css" media="screen, projection" href="main.css">
+        <script src="jquery-1.5.2.min.js"></script>
+        <script src="tools.js"></script>
     </head>
     <body>
         <div class="wrapper">
             <div class="container">
                 <div class="header">
                     <div class="logo">
-                        <a href="#" tal:attributes="href string:${navroot}"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/new_siyavula.png" /></a>
+                        <a href="/"><img src="new_siyavula.png" /></a>
                     </div>
                     <div class="shuttleworth_logo">
-                        <a href="http://www.shuttleworthfoundation.org/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/shuttleworth_foundation_logo.png" /></a>
+                        <a href="http://www.shuttleworthfoundation.org/"><img src="shuttleworth_foundation_logo.png" /></a>
                     </div>
                 </div>
                 <div class="menubar">
-                    <a tal:attributes="href string:${navroot}">
+                    <a href="/">
                         Home
                     </a>
-                <tal:sections tal:repeat="menu_section helpers/sections">
+                
                     |
-                    <a tal:attributes="href menu_section/absolute_url">
-                        <span tal:replace="menu_section/Title" />
+                    <a href="http://www.siyavula.com/books">
+                        WebBooks
                     </a>
-                </tal:sections>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/other">
+                        Resources
+                    </a>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/volunteers">
+                        Volunteers
+                    </a>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/courses">
+                        Courses
+                    </a>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/blog">
+                        Blog
+                    </a>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/about">
+                        About
+                    </a>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/contact">
+                        Contact
+                    </a>
+                
+                
+                    |
+                    <a href="http://www.siyavula.com/drive-distribution-1">
+                        Drive  Distribution
+                    </a>
+                
                 </div>
-                <tal:ifsection tal:condition="nocall:section">
-                <div id="banner-wrapper" tal:condition="helpers/headers">
-                    <div class="banners">
-                        <tal:banner tal:repeat="header helpers/headers">
-                        <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
-                            <div class="banner_text" tal:content="structure header/headerblurb/output">
-                            </div>
-                            <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
-                        </div>
-                        </tal:banner>
-                    </div>
-                    <metal:banner_form define-slot="banner_form">
-                    <div class="banner_form_email">
-                        <div class="banner_form_email_inside">
-                        <form id="mailform" tal:attributes="action string:${navroot}/@@mailform"><input id="textbox" class="textbox" type="text" title="Email Address" value="" name="email"><input id="emailbutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
-                        </div>
-                    </div>
-                    </metal:banner_form>
-                </div>
-                </tal:ifsection>
-                <tal:ifnosection tal:condition="not:nocall:section">
+                
+                
                 <div id="banner-wrapper">
-                    <div class="banners" tal:condition="helpers/headers">
-                        <tal:banner tal:repeat="header helpers/headers">
-                        <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
-                            <div class="banner_text" tal:content="structure header/headerblurb/output">
-                            </div>
-                            <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+                    <div class="banners">
+                        
+                        <div class="banner">
+                            <div class="banner_text"><h2>Technology-powered learning</h2>
+<p>Open resources and technology tools for educators and learners.</p></div>
+                            <img src="http://www.siyavula.com/settings/header/@@images/d28c35b5-d868-4d23-8c18-86b7c03a0658.png" alt="Header" title="Header" height="340" width="1027" />
                         </div>
-                        </tal:banner>
+                        
+                        
+                        <div class="banner hidden">
+                            <div class="banner_text"><h2>Free and open textbooks</h2>
+<p>Open copyright license. Download for free, change and adapt and distribute openly.</p></div>
+                            <img src="http://www.siyavula.com/settings/second-header/@@images/f441a1fd-3843-4963-aa01-2e03243144fd.png" alt="Second header" title="Second header" height="340" width="1027" />
+                        </div>
+                        
                     </div>
-                    <metal:shortcode_form define-macro="shortcode_form">
+                    
                     <div class="banner_form">
                         <div class="banner_form_inside">
-                        <form><input id="textbox" class="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
+                        <form><input id="textbox" class="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="http://www.siyavula.com/++resource++siyavula.app/go_button.png" /></form>
                         </div>
                     </div>
-                    </metal:shortcode_form>
+                    
                 </div>
-                </tal:ifnosection>
+                
                 <div class="section">
-                <metal:siyavula_heading define-slot="siyavula_heading">
-                <tal:ifsection tal:condition="nocall:section">
-                    <div class="heading_button" tal:condition="section/button">
-                        <img tal:define="scale section/@@images" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
-                    </div>
-                    <div class="tagline" tal:attributes="style tagline_style">
-                        <span tal:condition="section/tagline" tal:content="section/tagline" /><span tal:condition="not:section/tagline">Siyavula, Incredible Educational Resources.</span>
-                    </div>
-                </tal:ifsection>
-                <tal:ifnosection tal:condition="not:nocall:section">
-                    <div class="tagline" tal:attributes="style tagline_style">
-                        <span>Siyavula, Incredible Educational Resources.</span>
-                    </div>
-                </tal:ifnosection>
-                </metal:siyavula_heading>
+                
+        <div class="heading_button">
+        <a href="http://www.siyavula.com/books">
+        <img src="http://www.siyavula.com/books/@@images/8b93aaad-ac5f-4182-8214-91708fd414e9.png" alt="WebBooks" title="WebBooks" height="55" width="279" />
+        </a>
+        </div>
+        <div class="heading_button">
+        <a href="http://www.siyavula.com/courses">
+        <img src="http://www.siyavula.com/courses/@@images/98d0a3af-e7df-43e5-b1f1-c9abe7c5d18e.png" alt="Courses" title="Courses" height="55" width="278" />
+        </a>
+        </div>
+        <div class="heading_button">
+        <a href="http://www.siyavula.com/volunteers">
+        <img src="http://www.siyavula.com/volunteers/@@images/66771adf-7eeb-4e60-942f-9942eaf1cd2e.png" alt="Volunteers" title="Volunteers" height="55" width="268" />
+        </a>
+        </div>
+    
                 </div>
                 <div class="content">
-                <tal:main metal:define-slot="siyavula_content">
-                </tal:main>
+                
+        <div class="content-left">
+        <p style="text-align: justify; "><strong>WebBooks</strong> are curriculum aligned open textbooks with links to on-line videos, simulations, presentations and questions in the FullMarks assessment bank. In addition to serving as great textbooks in class, these books also make it easy for learners to find rich media resources on-line. They also help educators identify technology tools to use in their classrooms.</p>
+        
+        </div>
+        <div class="content-left">
+        <p style="text-align: justify; "><strong>Courses</strong> for educators looking to incorporate these open resources and technology tools into their classrooms. Whether you are looking for an update on the latest technology trends, the copyright issues around using open resources or the practicalities of using resources specific to your subject, we aim to help you make sense of it. Read more about it in the courses section.</p>
+        
+        </div>
+        <div class="content-left">
+        <div style="padding-left: 0px; ">
+<div style="padding-left: 0px; ">
+<p style="padding-left: 0px; text-align: justify; "><strong>Volunteers</strong> are those special educators, academics, students and intellectuals who help create and improve the collection of open resources. We invite you to contribute in any way you prefer - whether it is by writing a chapter, pointing out an error or improvement, sending us your exam papers or recommending technology tools and resources that have worked for you in your class.</p>
+</div>
+</div>
+        
+        </div>
+        <div class="clear">&nbsp;</div>
+    
                 </div>
                 <div class="footer">
                     <div class="footer_wrapper">
-                        <div class="footer_book" tal:repeat="book helpers/books">
-                                <a tal:omit-tag="not:book/download_link" tal:attributes="href book/download_link">
-                                    <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=100, height=100, direction='up').tag()" />
+                        <div class="footer_book">
+                                <a href="http://www.fhsst.org/files/V1.0/Mathematics_Gr10_CAPS.pdf">
+                                    <img src="http://www.siyavula.com/books/mathematics-grade-10-caps-2011/@@images/1d5ce2cb-a691-4f68-8780-0c538188399f.png" alt="Mathematics WebBook | Grade 10 | CAPS" title="Mathematics WebBook | Grade 10 | CAPS" height="100" width="71" />
                                 </a>
                         </div>
-                        <div class="footer_blurb" tal:condition="helpers/books_blurb" tal:content="structure helpers/books_blurb">
+                        <div class="footer_book">
+                                <a href="http://www.fhsst.org/files/V1.0/Wiskunde_Gr10_CAPS.pdf">
+                                    <img src="http://www.siyavula.com/books/wiskunde-webboek-graad-10-caps/@@images/39bdd31b-1b2f-4c09-9249-0c800e6a0e4c.png" alt="Wiskunde WebBoek | Graad 10 | CAPS" title="Wiskunde WebBoek | Graad 10 | CAPS" height="100" width="71" />
+                                </a>
                         </div>
+                        <div class="footer_book">
+                                <a href="http://www.fhsst.org/files/V1.0/PhysicalScience_Gr10_CAPS.pdf">
+                                    <img src="http://www.siyavula.com/books/physical-sciences-grade-10-caps-2011/@@images/2d6b23c6-a464-40ba-a51c-c105c67b380b.png" alt="Physical Sciences WebBook | Grade 10 | CAPS" title="Physical Sciences WebBook | Grade 10 | CAPS" height="100" width="73" />
+                                </a>
+                        </div>
+                        <div class="footer_book">
+                                <a href="http://www.fhsst.org/files/V0-5/Mathematics_Gr11.pdf">
+                                    <img src="http://www.siyavula.com/books/mathematics-grade-11/@@images/0cf9e01c-f9d6-4b09-89e7-fe29dcb82bdd.png" alt="Mathematics | Grade 11 | NCS" title="Mathematics | Grade 11 | NCS" height="100" width="70" />
+                                </a>
+                        </div>
+                        <div class="footer_book">
+                                <a href="http://www.fhsst.org/files/V0-5/PhysicalScience_Gr11.pdf">
+                                    <img src="http://www.siyavula.com/books/physical-sciences-grade-11/@@images/51ea4d39-92ee-469c-93cd-860710a99826.png" alt="Physical Sciences | Grade 11 | NCS" title="Physical Sciences | Grade 11 | NCS" height="100" width="72" />
+                                </a>
+                        </div>
+                        <div class="footer_blurb"><p><strong>Our latest WebBooks</strong>. Click to download them for free, read them on-line, order a printed copy or read it on your mobile phone at m.siyavula.cnx.org.</p></div>
                     </div>
                     <div class="colophon">
-                        <a href="http://creativecommons.org/licenses/by/3.0/"><img src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/cc_88x31.png"></a> <span>&nbsp;&nbsp;&nbsp;This site and its content is licensed under the CC-BY creative commons license.</span>
+                        <a href="http://creativecommons.org/licenses/by/3.0/"><img src="http://www.siyavula.com/++resource++siyavula.app/cc_88x31.png"></a> <span>&nbsp;&nbsp;&nbsp;This site and its content is licensed under the CC-BY creative commons license.</span>
                     </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
+
