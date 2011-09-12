@@ -1,0 +1,72 @@
+<div class="" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
+                          portal context/@@plone_portal_state/portal;
+                          helpers nocall:context/@@main-template-helpers;
+                          section helpers/current_section;
+                          tagline_style helpers/tagline_style;">
+
+
+    <h3>The menubar at the top</h3>
+    <div class="menubar">
+        <a tal:attributes="href string:${navroot}/">
+            Home
+        </a>
+    <tal:sections tal:repeat="menu_section helpers/sections">
+        |
+        <a tal:attributes="href menu_section/absolute_url">
+            <span tal:replace="menu_section/Title" />
+        </a>
+    </tal:sections>
+    </div>
+
+
+    <h3>The banner wrapping area</h3>
+    <tal:ifsection tal:condition="nocall:section">
+    <div id="banner-wrapper" tal:condition="helpers/headers">
+        <div class="banners">
+            <tal:banner tal:repeat="header helpers/headers">
+            <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
+                <div class="banner_text" tal:content="structure header/headerblurb/output">
+                </div>
+                <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+            </div>
+            </tal:banner>
+        </div>
+        <div class="banner_form_email">
+            <div class="banner_form_email_inside">
+            <form id="mailform" tal:attributes="action string:${navroot}/@@mailform"><input id="textbox" class="textbox" type="text" title="Email Address" value="" name="email"><input id="emailbutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
+            </div>
+        </div>
+    </div>
+    </tal:ifsection>
+    <tal:ifnosection tal:condition="not:nocall:section">
+    <div id="banner-wrapper">
+        <div class="banners" tal:condition="helpers/headers">
+            <tal:banner tal:repeat="header helpers/headers">
+            <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
+                <div class="banner_text" tal:content="structure header/headerblurb/output">
+                </div>
+                <img tal:define="scale header/@@images" tal:replace="structure python: scale.scale('header', width=1027, direction='down').tag()" />
+            </div>
+            </tal:banner>
+        </div>
+        <metal:shortcode_form define-macro="shortcode_form">
+        <div class="banner_form">
+            <div class="banner_form_inside">
+            <form><input id="textbox" class="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
+            </div>
+        </div>
+        </metal:shortcode_form>
+    </div>
+    </tal:ifnosection>
+
+    <h3>The footer wrapping area</h3>
+    <div class="footer_wrapper">
+        <div class="footer_book" tal:repeat="book helpers/books">
+                <a tal:omit-tag="not:book/download_link" tal:attributes="href book/download_link">
+                    <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=100, height=100, direction='up').tag()" />
+                </a>
+        </div>
+        <div class="footer_blurb" tal:condition="helpers/books_blurb" tal:content="structure helpers/books_blurb">
+        </div>
+    </div>
+</div>
