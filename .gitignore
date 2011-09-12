@@ -6,6 +6,7 @@ adminPassword.txt
 PloneController.app
 backup/
 bin/
+buildout-cache/
 develop-eggs/
 include/
 lib/
