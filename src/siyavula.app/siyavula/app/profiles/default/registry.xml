@@ -2,16 +2,19 @@
 <registry>
   <record interface="collective.xdv.interfaces.ITransformSettings"
           field="theme">
-    <value>python://siyavula.app/theme/index.html</value>
+    <value>python://siyavula.app/static/index.html</value>
   </record>
   <record interface="collective.xdv.interfaces.ITransformSettings"
           field="rules">
-    <value>python://siyavula.app/rules.xml</value>
+      <value>python://siyavula.app/static/rules.xml</value>
   </record>
   <record interface="collective.xdv.interfaces.ITransformSettings"
           field="domains">
     <value>
      <element>localhost:8080</element>
+     <element>public:8080</element>
+     <element>siyavula.com</element>
+     <element>www.siyavula.com</element>
     </value>
   </record>
   <record interface="collective.xdv.interfaces.ITransformSettings"
