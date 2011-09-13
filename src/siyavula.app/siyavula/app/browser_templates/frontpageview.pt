@@ -6,23 +6,24 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
 <body>
-    <metal:siyavula_heading fill-slot="siyavula_heading">
-        <div class="heading_button" tal:repeat="feature view/features">
-        <a href="#" tal:condition="feature/button|nothing" tal:attributes="href feature/absolute_url">
-        <img tal:define="scale feature/@@images" tal:condition="feature/button" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
-        </a>
+    <metal:siyavula_content fill-slot="content">
+    <div class="overlay">
+        <div id="siyavula-heading">
+            <div class="heading_button" tal:repeat="feature view/features">
+            <a href="#" tal:condition="feature/button|nothing" tal:attributes="href feature/absolute_url">
+            <img tal:define="scale feature/@@images" tal:condition="feature/button" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
+            </a>
+            </div>
         </div>
-    </metal:siyavula_heading>
-    <metal:siyavula_content fill-slot="siyavula_content">
+    </div>
+    <div id="siyavula-content">
         <div class="content-left" tal:repeat="feature view/features">
         <tal:content condition="feature/frontpage_content|nothing" replace="structure feature/frontpage_content/output" />
         <tal:embed condition="feature/embed_code|nothing" replace="structure feature/embed_code" />
         </div>
         <div class="clear">&nbsp;</div>
+    </div>
     </metal:siyavula_content>
-    <metal:main fill-slot="main">
-        This is the admin interface for the siyavula website. Click on the top links to get to where you need to be.
-    </metal:main>
 </body>
 
 </html>

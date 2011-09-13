@@ -1,4 +1,4 @@
-<div class="" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
+<div class="overlay" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
                           portal context/@@plone_portal_state/portal;
                           helpers nocall:context/@@main-template-helpers;
                           section helpers/current_section;
@@ -58,6 +58,23 @@
         </metal:shortcode_form>
     </div>
     </tal:ifnosection>
+
+    <h3>The section area with button and text</h3>
+    <div class="section">
+    <tal:ifsection tal:condition="nocall:section">
+        <div class="heading_button" tal:condition="section/button">
+            <img tal:define="scale section/@@images" tal:replace="structure python: scale.scale('button', width=279, height=55, direction='up').tag()" />
+        </div>
+        <div class="tagline" tal:attributes="style tagline_style">
+            <span tal:condition="section/tagline" tal:content="section/tagline" /><span tal:condition="not:section/tagline">Siyavula, Incredible Educational Resources.</span>
+        </div>
+    </tal:ifsection>
+    <tal:ifnosection tal:condition="not:nocall:section">
+        <div class="tagline" tal:attributes="style tagline_style">
+            <span>Siyavula, Incredible Educational Resources.</span>
+        </div>
+    </tal:ifnosection>
+    </div>
 
     <h3>The footer wrapping area</h3>
     <div class="footer_wrapper">

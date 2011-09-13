@@ -22,8 +22,14 @@
     <!-- banner form on all other pages -->
     <replace css:theme=".banner_form_email" css:content=".banner_form_email"/>
 
+    <!-- Section heading if overridden by template -->
+    <replace css:theme="#siyavula-heading" css:content="#siyavula-heading" css:if-content="#siyavula-heading"/>
+
+    <!-- Section heading with button -->
+    <replace css:theme=".section" css:content=".section" if-content="not(//*[@id='siyavula-heading'])"/>
+
     <!-- replace the whole body -->
-    <replace css:theme="#content" css:content="#content"/>
+    <replace css:theme=".content" css:content="#siyavula-content"/>
 
     <!-- Replace the footer books wrapper-->
     <replace css:theme=".footer_wrapper" css:content=".footer_wrapper"/>
