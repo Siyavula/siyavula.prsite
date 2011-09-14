@@ -22,6 +22,12 @@
       />
   <!-- -*- extra stuff goes here -*- -->
   
+  <!-- skinswitcher to plone admin skin, based on url. -->
+  <subscriber
+       for="*
+            zope.app.publication.interfaces.IBeforeTraverseEvent"
+       handler=".themeswitcher.switch_theme" />
+
   <plone:static type="theme" directory="static" />
 
 </configure>
