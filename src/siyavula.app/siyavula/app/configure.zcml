@@ -3,6 +3,7 @@
     xmlns:grok="http://namespaces.zope.org/grok"
     xmlns:cmf="http://namespaces.zope.org/cmf"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="siyavula.app">
 
     <!-- Include configuration for dependencies listed in setup.py -->
@@ -21,4 +22,6 @@
       />
   <!-- -*- extra stuff goes here -*- -->
   
+  <plone:static type="theme" directory="static" />
+
 </configure>
