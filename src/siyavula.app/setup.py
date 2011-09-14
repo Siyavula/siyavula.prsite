@@ -27,7 +27,7 @@ setup(name='siyavula.app',
           'setuptools',
           # -*- Extra requirements: -*-
           'plone.app.dexterity',
-          'collective.xdv',
+          'plone.app.theming',
       ],
       entry_points="""
       # -*- Entry points: -*-
