@@ -27,7 +27,7 @@
     <replace css:theme=".banner_form_email" css:content=".banner_form_email"/>
 
     <!-- Section heading if overridden by template -->
-    <replace css:theme="#siyavula-heading" css:content="#siyavula-heading" css:if-content="#siyavula-heading"/>
+    <replace css:theme-children=".section" css:content-children="#siyavula-heading" css:if-content="#siyavula-heading"/>
 
     <!-- Section heading with button -->
     <replace css:theme=".section" css:content=".section" if-content="not(//*[@id='siyavula-heading'])"/>
