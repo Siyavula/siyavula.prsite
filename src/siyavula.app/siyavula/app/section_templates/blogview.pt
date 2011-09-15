@@ -7,7 +7,9 @@
       i18n:domain="siyavula.app">
     <body>
         <metal:siyavula_content fill-slot="content" tal:define="normal_view nocall:context/@@view">
+        <div id="siyavula-content">
             <metal:siyavula_content_macro use-macro="normal_view/macros/siyavula_content" />
+        </div>
         </metal:siyavula_content>
     </body>
 </html>

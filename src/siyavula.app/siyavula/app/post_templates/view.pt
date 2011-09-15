@@ -6,7 +6,8 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
 <body>
-        <metal:siyavula_content fill-slot="siyavula_content">
+        <metal:siyavula_content fill-slot="content">
+        <div id="siyavula-content">
         <div class="content-left">
             <span tal:condition=" context/content" tal:replace="structure context/content/output" />
         </div>
@@ -17,6 +18,7 @@
             </div>
         </div>
         <div class="clear">&nbsp;</div>
+        </div>
         </metal:siyavula_content>
 </body>
 

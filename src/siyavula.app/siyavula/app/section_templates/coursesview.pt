@@ -7,6 +7,7 @@
       i18n:domain="siyavula.app">
     <body>
         <metal:siyavula_content fill-slot="content" tal:define="normal_view nocall:context/@@view">
+        <div id="siyavula-content">
         <div class="content-left">
             <span tal:condition=" context/content" tal:replace="structure context/content/output" />
         </div>
@@ -18,6 +19,7 @@
             </metal:siyavula_content_macro>
         </div>
         <div class="clear">&nbsp;</div>
+        </div>
         </metal:siyavula_content>
     </body>
 </html>
