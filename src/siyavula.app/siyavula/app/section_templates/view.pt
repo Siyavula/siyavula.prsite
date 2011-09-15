@@ -6,8 +6,9 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
 <body>
-    <metal:siyavula_content fill-slot="siyavula_content">
+    <metal:siyavula_content fill-slot="content">
         <metal:siyavula_content_macro define-macro="siyavula_content">
+        <div class="content">
         <div class="contentbox" tal:repeat="post view/posts">
             <div class="contentimage" tal:condition="post/image">
                 <a tal:omit-tag="not:post/url" tal:attributes="href post/url">
@@ -21,6 +22,7 @@
                 <tal:content tal:replace="structure post/content/output" />
             </div>
             <div class="clear">&nbsp</div>
+        </div>
         </div>
         </metal:siyavula_content_macro>
     </metal:siyavula_content>
