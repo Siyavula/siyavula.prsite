@@ -49,13 +49,11 @@
             </div>
             </tal:banner>
         </div>
-        <metal:shortcode_form define-macro="shortcode_form">
         <div class="banner_form">
             <div class="banner_form_inside">
             <form><input id="textbox" class="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${navroot}/++resource++siyavula.app/go_button.png" /></form>
             </div>
         </div>
-        </metal:shortcode_form>
     </div>
     </tal:ifnosection>
 

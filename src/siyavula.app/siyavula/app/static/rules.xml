@@ -24,7 +24,7 @@
     <!-- banner form on the front page-->
     <replace css:theme=".banner_form" css:content=".banner_form"/>
     <!-- banner form on all other pages -->
-    <replace css:theme=".banner_form_email" css:content=".banner_form_email"/>
+    <replace css:theme=".banner_form_email" css:content=".banner_form_email" if-content="not(//*[@class='banner_form'])"/>
 
     <!-- Section heading if overridden by template -->
     <replace css:theme-children=".section" css:content-children="#siyavula-heading" css:if-content="#siyavula-heading"/>

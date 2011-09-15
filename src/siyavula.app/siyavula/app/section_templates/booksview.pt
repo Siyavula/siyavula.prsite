@@ -6,11 +6,13 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="siyavula.app">
     <body>
-        <metal:banner fill-slot="banner_form">
-        <metal:use metal:use-macro="context/main_template/macros/shortcode_form" >
-        </metal:use>
-        </metal:banner>
-        <metal:siyavula_content fill-slot="siyavula_content">
+        <metal:siyavula_content fill-slot="content">
+        <div class="banner_form">
+            <div class="banner_form_inside">
+            <form><input id="textbox" class="textbox" type="text" title="Enter Shortcode" value="" name="shortcode"><input id="shortcodebutton" type="image" src="" tal:attributes="src string:${context/@@plone_portal_state/navigation_root_url}/++resource++siyavula.app/go_button.png" /></form>
+            </div>
+        </div>
+        <div id="siyavula-content">
         <div class="contentbox" tal:repeat="book view/books">
             <div class="bookblock" tal:condition="book/cover">
                 <img tal:define="scale book/@@images" tal:replace="structure python: scale.scale('cover', width=99, height=200, direction='up').tag()" />
@@ -32,7 +34,8 @@
                 <br/>
                 <p><a tal:attributes="href string:${context/absolute_url}/@@formview;">Order a hard copy - <span tal:replace="book/price" /></a></p>
             </div>
-            <div class="clear">&nbsp</div>
+            <div class="clear">&nbsp;</div>
+        </div>
         </div>
         </metal:siyavula_content>
     </body>
