@@ -9,34 +9,63 @@
     <theme href="index.html" />
 
     <!-- Head: title -->
-    <replace theme="/html/head/title" content="/html/head/title"/>
+    <replace
+        theme="/html/head/title"
+        content="/html/head/title"/>
 
     <!-- global -->
-    <replace theme="/html/head/base" content="/html/head/base"/>
+    <replace
+        theme="/html/head/base"
+        content="/html/head/base"/>
     
     <!-- Nav replacement -->
-    <replace css:theme=".menubar" css:content=".menubar"/>
+    <replace
+        css:theme=".menubar"
+        css:content=".menubar"/>
 
     <!-- Drop banner wrapper if content does not have it -->
-    <drop css:theme="#banner-wrapper" if-content="not(//*[@id='banner-wrapper'])"/>
+    <drop
+        css:theme="#banner-wrapper"
+        if-content="not(//*[@id='banner-wrapper'])"/>
     <!-- banners replacement -->
-    <replace css:theme=".banners" css:content=".banners"/>
+    <replace
+        css:theme=".banners"
+        css:content=".banners"/>
     <!-- banner form on the front page-->
-    <replace css:theme=".banner_form" css:content=".banner_form"/>
+    <replace
+        css:theme=".banner_form"
+        css:content=".banner_form"/>
     <!-- banner form on all other pages -->
-    <replace css:theme=".banner_form_email" css:content=".banner_form_email" if-content="not(//*[@class='banner_form'])"/>
+    <replace
+        css:theme=".banner_form_email"
+        css:content=".banner_form_email"
+        if-content="not(//*[@class='banner_form'])"/>
 
     <!-- Section heading if overridden by template -->
-    <replace css:theme-children=".section" css:content-children="#siyavula-heading" css:if-content="#siyavula-heading"/>
+    <replace
+        css:theme-children=".section"
+        css:content-children="#siyavula-heading"
+        css:if-content="#siyavula-heading"/>
 
     <!-- Section heading with button -->
-    <replace css:theme=".section" css:content=".section" if-content="not(//*[@id='siyavula-heading'])"/>
+    <replace
+        css:theme=".section"
+        css:content=".section"
+        if-content="not(//*[@id='siyavula-heading'])"/>
 
     <!-- content -->
-    <replace css:theme-children=".content" css:content-children="#siyavula-content" css:if-content="#siyavula-content"/>
+    <replace
+        css:theme-children=".content"
+        css:content-children="#siyavula-content"
+        css:if-content="#siyavula-content"/>
 
-    <replace css:theme=".content" css:content=".content" if-content="not(//*[@id='siyavula-content'])"/>
+    <replace
+        css:theme=".content"
+        css:content=".content"
+        if-content="not(//*[@id='siyavula-content'])"/>
 
     <!-- Replace the footer books wrapper-->
-    <replace css:theme=".footer_wrapper" css:content=".footer_wrapper"/>
+    <replace
+        css:theme=".footer_wrapper"
+        css:content=".footer_wrapper"/>
 </rules>
