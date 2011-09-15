@@ -32,8 +32,10 @@
     <!-- Section heading with button -->
     <replace css:theme=".section" css:content=".section" if-content="not(//*[@id='siyavula-heading'])"/>
 
-    <!-- replace the whole body -->
-    <replace css:theme=".content" css:content="#siyavula-content"/>
+    <!-- content -->
+    <replace css:theme-children=".content" css:content-children="#siyavula-content" css:if-content="#siyavula-content"/>
+
+    <replace css:theme=".content" css:content=".content" if-content="not(//*[@id='siyavula-content'])"/>
 
     <!-- Replace the footer books wrapper-->
     <replace css:theme=".footer_wrapper" css:content=".footer_wrapper"/>
