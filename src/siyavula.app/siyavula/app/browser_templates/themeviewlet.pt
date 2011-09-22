@@ -1,8 +1,9 @@
 <div class="overlay" tal:define="navroot context/@@plone_portal_state/navigation_root_url;
                           portal context/@@plone_portal_state/portal;
-                          helpers nocall:context/@@main-template-helpers;
-                          section helpers/current_section;
-                          tagline_style helpers/tagline_style;">
+                          helpers nocall:context/@@main-template-helpers|nothing;
+                          section helpers/current_section|nothing;
+                          tagline_style helpers/tagline_style|nothing;"
+                          tal:condition="nocall:helpers">
 
 
     <h3>The menubar at the top</h3>
@@ -39,8 +40,8 @@
     </div>
     </tal:ifsection>
     <tal:ifnosection tal:condition="not:nocall:section">
-    <div id="banner-wrapper">
-        <div class="banners" tal:condition="helpers/headers">
+    <div id="banner-wrapper" tal:condition="helpers/headers">
+        <div class="banners">
             <tal:banner tal:repeat="header helpers/headers">
             <div class="banner" tal:define="isfirst repeat/header/start" tal:attributes="class python:isfirst and 'banner' or 'banner hidden'">
                 <div class="banner_text" tal:content="structure header/headerblurb/output">

@@ -157,7 +157,7 @@ input.textbox {
     padding:0 0 0 40px;
 }
 
-.content {
+#content {
     width: 966px;
     background: url('content_bg.png') repeat-y;
     margin-left:-6px;
@@ -212,7 +212,7 @@ input.textbox {
 }
 
 /* Post and book content styling */
-.contentbox {
+.contentbox, .blog-item {
     border: 1px solid black;
     background: white;
     -moz-border-radius: 8px;
@@ -222,7 +222,7 @@ input.textbox {
     padding: 0 2.5em 0 2em;
 }
 
-.contentbox h1 {
+.contentbox h1, .blog-item h1 {
     font-weight:normal;
     font-size: 1.5em;
     color: #3096d3;
@@ -243,8 +243,34 @@ input.textbox {
 }
 
 /* post images should have some padding. */
-div.post_content img {
+div.post_content img, .blog-item img {
     margin: 1em;
+}
+
+/* Split blog page view for folder blog */
+
+#blog-portlets {
+    float:left;
+    width:200px;
+    padding:0 26px 0 10px;
+}
+
+#blog-portlets dd {
+    margin-left:0;
+}
+
+#blog-portlets ul {
+    list-style:none;
+    padding-left:0;
+}
+
+#blog-portlets li {
+    display:list-item;
+}
+
+#blog-listing {
+    float:left;
+    width:730px;
 }
 
 /* Split content page */

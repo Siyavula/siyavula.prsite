@@ -92,7 +92,7 @@
                 </tal:ifnosection>
                 </metal:siyavula_heading>
                 </div>
-                <div class="content">
+                <div id="content">
                 <tal:main metal:define-slot="siyavula_content">
                 </tal:main>
                 </div>

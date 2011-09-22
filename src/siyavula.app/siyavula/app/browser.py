@@ -26,8 +26,9 @@ class MainTemplateHelpers(grok.View):
         """Get the sections in the portal root."""
         portal = self.portal()
         sections = portal.getFolderContents(
-                {'portal_type':'siyavula.app.section'})
-        return [i.getObject() for i in sections]
+                {'portal_type':['Folder', 'siyavula.app.section']})
+        excludes = ['news', 'events', 'members']
+        return [i.getObject() for i in sections if i.id not in excludes]
         
     @view.memoize
     def current_section(self, context=None):

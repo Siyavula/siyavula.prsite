@@ -54,16 +54,35 @@
         if-content="not(//*[@id='siyavula-heading'])"/>
 
     <!-- content -->
+    <!-- If the content is from siyavula content types -->
     <replace
-        css:theme-children=".content"
+        css:theme-children="#content"
         css:content-children="#siyavula-content"
         css:if-content="#siyavula-content"/>
 
-    <replace
-        css:theme=".content"
-        css:content=".content"
-        if-content="not(//*[@id='siyavula-content'])"/>
+    <!-- If the content is from normal Plone folders -->
+    <rules if-content="not(//*[@id='siyavula-content'])">
+        <rules if-content="not(//*[@id='blog-listing'])">
+            <replace
+                css:theme-children="#content"
+                css:content-children="#content"/>
+        </rules>
 
+        <!-- Blog view specific rules -->
+        <rules css:if-content=".template-blog_view">
+            <drop
+                css:content=".documentDescription"
+                />
+            <replace
+                css:theme="#blog-listing"
+                css:content="#blog-listing"
+                />
+            <replace
+                css:theme=".portletArchivePortlet"
+                css:content=".portletArchivePortlet"
+                />
+        </rules>
+    </rules>
     <!-- Replace the footer books wrapper-->
     <replace
         css:theme=".footer_wrapper"
