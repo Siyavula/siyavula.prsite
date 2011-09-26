@@ -27,7 +27,7 @@ class MainTemplateHelpers(grok.View):
         portal = self.portal()
         sections = portal.getFolderContents(
                 {'portal_type':['Folder', 'siyavula.app.section']})
-        excludes = ['news', 'events', 'members']
+        excludes = ['news', 'events', 'Members']
         return [i.getObject() for i in sections if i.id not in excludes]
         
     @view.memoize
